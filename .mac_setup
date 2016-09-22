@@ -1,0 +1,44 @@
+# .mac_setup
+
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
+
+# Show file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable warning when changing extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Show path in title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Show files in list view
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Dont create .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Disable the rearrange spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Ask for password after 60 second
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 60
+
+# Bottom left screen corner for screen saver
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# Remove all application from the dock
+defaults write com.apple.dock persistent-apps -array
+
+# Add a spacer in the app side of the Dock
+defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
+# Restart all affected applications
+for app in "Dashboard" "Dock" "Finder" ; do
+    killall "$app" > /dev/null 2>&1
+done

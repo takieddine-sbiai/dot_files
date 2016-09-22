@@ -1,0 +1,22 @@
+[general]
+accounts = MAIN 
+
+[Account MAIN]
+localrepository = Local
+remoterepository = Remote
+status_backend = sqlite
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Mail
+
+[Repository Remote]
+type = IMAP
+remotehost = imap.example.com
+remoteuser = taki@example.com
+reference = Mail
+maxconnections = 1
+holdconnectionopen = yes
+keepalive = 60
+ssl = yes
+cert_fingerprint = CERT_FIGERPRINT

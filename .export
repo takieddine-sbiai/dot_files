@@ -1,0 +1,29 @@
+# .export
+
+# Path
+export PATH="~/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
+export GOPATH="~/golang/"
+
+# history
+export HISTFILESIZE="100000"
+export HISTSIZE="100000"
+export PROMPT_COMMAND="history -a"
+
+# GPG
+export GPG_TTY="$(tty)"
+export GPGKEY=""
+
+# Locale
+export LC_CTYPE="C"
+
+# Man
+export LESS_TERMCAP_md="$(tput bold; tput setaf 4)"
+
+# Editor
+export EDITOR="vim"
+
+# GIT
+export GIT_PS1_SHOWDIRTYSTATE="true"
+export GIT_PS1_SHOWSTASHSTATE="true"
+export GIT_PS1_SHOWUNTRACKEDFILES="true"
+export GIT_PS1_SHOWUPSTREAM="auto verbose"
