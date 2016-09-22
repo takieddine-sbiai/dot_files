@@ -1,0 +1,12 @@
+*
+!.aliases
+!.bash_profile
+!.export
+!.git-*
+!.gitignore
+!.iterm2
+!.iterm2/*
+!.mac_setup
+!.offlineimaprc
+!.tmux.conf
+!README.md
