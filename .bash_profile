@@ -10,11 +10,11 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
-# Git 
-if [ -f ~/.git-prompt ]; then
-    source ~/.git-prompt
+# bash git prompt
+if [ ! -d ~/.bash-git-prompt/ ]; then 
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 fi
-PS1="\[\033[32m\]\@ \[\033[33m\]\w\$(__git_ps1 \" (\[\033[36m\]%s\[\033[33m\])\") \n\$\[\033[0m\] "
+source ~/.bash-git-prompt/gitprompt.sh
 
 # bash completion
 if [ -d ~/.bash-completion.d/ ]; then

@@ -4,7 +4,6 @@
 !.bash-completion.d/*
 !.bash_profile
 !.export
-!.git-*
 !.gitignore
 !.iterm2
 !.iterm2/*
