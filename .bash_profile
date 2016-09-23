@@ -14,12 +14,14 @@ fi
 if [ -f ~/.git-prompt ]; then
     source ~/.git-prompt
 fi
-
-if [ -f ~/.git-completion ]; then
-    source ~/.git-completion
-fi
-
 PS1="\[\033[32m\]\@ \[\033[33m\]\w\$(__git_ps1 \" (\[\033[36m\]%s\[\033[33m\])\") \n\$\[\033[0m\] "
+
+# bash completion
+if [ -d ~/.bash-completion.d/ ]; then
+    for file in `ls .bash-completion.d`; do
+	source ~/.bash-completion.d/${file}
+    done
+fi
 
 # GPG
 if [ "$(pgrep -U `whoami` gpg-agent | wc -l)" -gt "1" ]; then

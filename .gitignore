@@ -1,5 +1,7 @@
 *
 !.aliases
+!.bash-completion.d
+!.bash-completion.d/*
 !.bash_profile
 !.export
 !.git-*
