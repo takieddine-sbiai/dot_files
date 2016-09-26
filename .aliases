@@ -5,6 +5,6 @@ alias tmux='tmux -u'
 alias vi='vim'
 
 # Linux only
-if [ "$(uname)" == "Linux" ]; then 
+if [ "$(uname)" == "Linux" ]; then
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 fi
