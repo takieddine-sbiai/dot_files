@@ -1,8 +1,8 @@
 # dot_files
 
-start by cloning this repo into a tmp folder 
+start by cloning this repo into a tmp folder
 ```bash
-git clone https://github.com:takieddine-sbiai/dot_files.git /tmp/dot_files
+git clone https://github.com/takieddine-sbiai/dot_files.git /tmp/dot_files
 ```
 
 then move the files to your home dir
