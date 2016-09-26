@@ -9,5 +9,7 @@
 !.iterm2/*
 !.mac_setup
 !.offlineimaprc
+!.tigrc
 !.tmux.conf
+!.vimrc
 !README.md

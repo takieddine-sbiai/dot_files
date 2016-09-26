@@ -1,0 +1,4 @@
+bind generic S :source ~/.tigrc
+bind status  + !git commit --amend
+
+set reference-format = (branch) <tag>
