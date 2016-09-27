@@ -18,7 +18,7 @@ source ~/.bash-git-prompt/gitprompt.sh
 
 # bash completion
 if [ -d ~/.bash-completion.d/ ]; then
-    for file in `ls .bash-completion.d`; do
+    for file in `ls ~/.bash-completion.d`; do
 	source ~/.bash-completion.d/${file}
     done
 fi
