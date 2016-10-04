@@ -65,7 +65,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Plugins {{{
 " Gundo {{{
-source ~/.vim/gundo/autoload/gundo.vim
-nnoremap <leader>u :GundoToggle<CR>
+"source ~/.vim/gundo/autoload/gundo.vim
+"nnoremap <leader>u :GundoToggle<CR>
 " }}}
 " }}}
