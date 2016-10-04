@@ -10,8 +10,7 @@
 !.iterm2
 !.iterm2/*
 !.mac_setup
-!.macport_installed
-!.macport_requested
+!.macport
 !.offlineimaprc
 !.tigrc
 !.tmux.conf
