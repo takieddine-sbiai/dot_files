@@ -1,5 +1,6 @@
 # .aliases
 
+alias ls='ls -G'
 alias ll='ls -AlG'
 alias tmux='tmux -u'
 alias vi='vim'
