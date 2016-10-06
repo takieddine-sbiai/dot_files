@@ -1,3 +1,4 @@
+#!/bin/bash
 # bash completion for kubectl                              -*- shell-script -*-
 
 __debug()
@@ -110,7 +111,7 @@ __handle_reply()
         declare -F __custom_func >/dev/null && __custom_func
     fi
 
-    __ltrim_colon_completions "$cur"
+    #__ltrim_colon_completions "$cur"
 }
 
 # The arguments should be in the form "ext1|ext2|extn"
