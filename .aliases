@@ -4,6 +4,7 @@ alias ls='ls -G'
 alias ll='ls -AlG'
 alias tmux='tmux -u'
 alias vi='vim'
+alias grep='grep --color'
 
 # Linux only
 if [ "$(uname)" == "Linux" ]; then
