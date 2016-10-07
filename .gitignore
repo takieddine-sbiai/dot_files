@@ -9,6 +9,7 @@
 !.gitignore
 !.iterm2
 !.iterm2/*
+!.iterm2_shell_integration.bash
 !.mac_setup
 !.macport
 !.offlineimaprc
