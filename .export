@@ -8,6 +8,7 @@ export GOPATH="~/golang/"
 export HISTFILESIZE="100000"
 export HISTSIZE="100000"
 export PROMPT_COMMAND="history -a"
+export HISTCONTROL=ignoreboth:erasedups
 
 # GPG
 export GPG_TTY="$(tty)"
