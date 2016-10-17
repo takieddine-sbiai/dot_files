@@ -1,9 +1,5 @@
 # .export
 
-# Path
-export PATH="~/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
-export GOPATH="~/golang/"
-
 # history
 export HISTFILESIZE="100000"
 export HISTSIZE="100000"
@@ -29,3 +25,9 @@ export GIT_PROMPT_SHOW_UPSTREAM=1
 export GIT_PROMPT_SHOW_UNTRACKED_FILES=all
 export GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=1
 export GIT_PROMPT_THEME=Minimal-custom
+
+# GO
+export GOPATH=~/go
+
+# Path should be the last exported variable
+export PATH="~/bin:${GOPATH}/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
