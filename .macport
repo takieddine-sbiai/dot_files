@@ -1,6 +1,10 @@
 bash-completion
+go
 gpg-agent
+htop
 ipcalc
+jq
+python36
 tig
 tmux
 vim
