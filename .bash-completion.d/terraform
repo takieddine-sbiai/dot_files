@@ -4,8 +4,7 @@
 _terraform()
 {
    local cmds cur colonprefixes
-   cmds="apply destroy get graph init output plan push          \
-      refresh remote show taint version"
+   cmds=$(terraform --help |grep ^[[:space:]] | awk '{print $1}' | tr '\n' ' ')
 
    COMPREPLY=()
    cur=${COMP_WORDS[COMP_CWORD]}
@@ -22,4 +21,5 @@ _terraform()
 
         return 0
 } &&
-complete -F _terraform terraform
+complete -o default -o nospace -F _terraform terraform
+#complete -F _terraform terraform
