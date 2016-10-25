@@ -4,5 +4,5 @@
 
 if command -v kubectl &>/dev/null
 then
-  eval "$(kubectl completion bash)"
+  eval "$(kubectl completion bash| grep -v __ltrim_colon_completions | grep -v _filedir)"
 fi

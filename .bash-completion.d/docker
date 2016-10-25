@@ -129,7 +129,6 @@ __docker_complete_images() {
 
 	local images=$(__docker_q images $images_args | awk "$awk_script")
 	COMPREPLY=( $(compgen -W "$images" -- "$cur") )
-	__ltrim_colon_completions "$cur"
 }
 
 __docker_complete_image_repos() {
@@ -140,7 +139,6 @@ __docker_complete_image_repos() {
 __docker_complete_image_repos_and_tags() {
 	local reposAndTags="$(__docker_q images | awk 'NR>1 && $1 != "<none>" { print $1; print $1":"$2 }')"
 	COMPREPLY=( $(compgen -W "$reposAndTags" -- "$cur") )
-	__ltrim_colon_completions "$cur"
 }
 
 __docker_complete_containers_and_images() {
@@ -569,7 +567,6 @@ __docker_complete_log_driver_options() {
 		syslog-address)
 			COMPREPLY=( $( compgen -W "tcp:// tcp+tls:// udp:// unix://" -- "${cur##*=}" ) )
 			__docker_nospace
-			__ltrim_colon_completions "${cur}"
 			return
 			;;
 		syslog-facility)
@@ -612,7 +609,6 @@ __docker_complete_log_driver_options() {
 		splunk-url)
 			COMPREPLY=( $( compgen -W "http:// https://" -- "${cur##*=}" ) )
 			__docker_nospace
-			__ltrim_colon_completions "${cur}"
 			return
 			;;
 		splunk-insecureskipverify)
