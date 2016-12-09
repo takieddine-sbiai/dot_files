@@ -1,0 +1,83 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-38117-1d5yu40"
+    ]
+  ],
+  "_from": "../d-116119-38117-1ok4051/package.tgz",
+  "_id": "go-hyperclick@1.1.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/go-hyperclick",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116119-38117-1ok4051/package.tgz",
+  "_shasum": "b1d27d169f66b1e5416dd1dc3a9a6b6b7a702cd7",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38117-1ok4051/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-38117-1d5yu40",
+  "author": {
+    "name": "Zhengyi Lai",
+    "email": "laizhyi@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/zheng1/go-hyperclick/issues"
+  },
+  "dependencies": {
+    "atom-package-deps": "^4.0.1"
+  },
+  "description": "A hyperclick provider for golang.",
+  "devDependencies": {
+    "standard": "^8.3.0"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/zheng1/go-hyperclick#readme",
+  "main": "./lib/main",
+  "name": "go-hyperclick",
+  "optionalDependencies": {},
+  "package-deps": [
+    "navigator-go"
+  ],
+  "providedServices": {
+    "hyperclick.provider": {
+      "versions": {
+        "0.0.0": "getProvider"
+      }
+    }
+  },
+  "readme": "# go-hyperclick package\n\nA [hyperclick][hyperclick] provider that lets you jump to where variables are defined.\n\n[hyperclick]: https://atom.io/packages/hyperclick\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zheng1/go-hyperclick.git"
+  },
+  "standard": {
+    "globals": [
+      "atom",
+      "waitsForPromise"
+    ]
+  },
+  "version": "1.1.2"
+}

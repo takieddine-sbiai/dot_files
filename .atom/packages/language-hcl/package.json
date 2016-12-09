@@ -1,0 +1,63 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116924-8984-1k3dhlq"
+    ]
+  ],
+  "_from": "../d-116924-8984-198iunx/package.tgz",
+  "_id": "language-hcl@0.4.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-hcl",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116924-8984-198iunx/package.tgz",
+  "_shasum": "b670968762a374cf50857704904caa48711e2c60",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116924-8984-198iunx/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116924-8984-1k3dhlq",
+  "bugs": {
+    "url": "https://github.com/fd/language-hcl/issues"
+  },
+  "dependencies": {},
+  "description": "Syntax support for the HashiCorp Configuration Language",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://github.com/fd/language-hcl#readme",
+  "keywords": [
+    "language",
+    "grammar"
+  ],
+  "license": "MIT",
+  "name": "language-hcl",
+  "optionalDependencies": {},
+  "readme": "# HashiCorp Configuration Language package\n\nA grammar for the HashiCorp Configuration Language.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fd/language-hcl.git"
+  },
+  "version": "0.4.0"
+}

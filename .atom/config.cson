@@ -1,0 +1,26 @@
+"*":
+  "autocomplete-go":
+    snippetMode: "nameAndType"
+  core:
+    audioBeep: false
+    packagesWithKeymapsDisabled: [
+      "hyperclick"
+    ]
+    telemetryConsent: "no"
+  editor:
+    autoIndentOnPaste: false
+    showIndentGuide: true
+    showInvisibles: true
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "a29130a2-edc1-fc79-0155-dc0c60503342"
+  "go-plus":
+    currentPanelHeight: "16.9852648347272vh"
+  hyperclick:
+    darwinTriggerKeys: "altKey"
+  linter:
+    showErrorPanel: false
+  "vim-mode":
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
