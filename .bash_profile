@@ -17,6 +17,9 @@ fi
 source ~/.bash-git-prompt/gitprompt.sh
 
 # bash completion
+# install brew auto_completion first
+source $(brew --prefix)/etc/bash_completion
+
 if [ -d ~/.bash-completion.d/ ]; then
     for file in `ls ~/.bash-completion.d`; do
 	source ~/.bash-completion.d/${file}
