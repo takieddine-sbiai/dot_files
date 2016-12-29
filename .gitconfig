@@ -7,4 +7,3 @@
 	ci = commit
 	st = status
 	last = log -1 HEAD
-  push = push HEAD:refs/heads/
