@@ -3,7 +3,7 @@
 	email = takieddine-sbiai@users.noreply.github.com
 [alias]
 	co = checkout
-	fetch = fecth --all --prune
+	fh = fetch --all --prune
 	ci = commit
 	st = status
 	last = log -1 HEAD
