@@ -1,3 +1,10 @@
 [user]
 	name = Takieddine Sbiai
 	email = takieddine-sbiai@users.noreply.github.com
+[alias]
+	co = checkout
+	fetch = fecth --all --prune
+	ci = commit
+	st = status
+	last = log -1 HEAD
+  push = push HEAD:refs/heads/
