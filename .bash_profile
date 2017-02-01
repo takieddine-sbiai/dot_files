@@ -40,6 +40,9 @@ fi
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# delete .DS_Store files
+find ${HOME} -name .DS_Store -delete
+
 # Tmux
 if [ "$(pgrep -U `whoami` tmux | wc -l)" -eq "0" ]; then
     tmux new-session -d -s main
