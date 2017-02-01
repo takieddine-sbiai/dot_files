@@ -1,4 +1,4 @@
-# .mac_setup
+#!/bin/bash
 
 # Show hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
@@ -38,7 +38,12 @@ defaults write com.apple.dock persistent-apps -array
 # Add a spacer in the app side of the Dock
 defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
-# Restart all affected applications
+# Add login hooks
+for login_hook in $(ls -1 ~/.login_hooks) ; do
+  defaults write com.apple.loginwindow ${login_hook} /Users/taki/.login_hooks/${login_hook}
+done
+
+## Restart all affected applications
 for app in "Dashboard" "Dock" "Finder" ; do
     killall "$app" > /dev/null 2>&1
 done

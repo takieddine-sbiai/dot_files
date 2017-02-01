@@ -1,0 +1,2 @@
+#!/bin/sh
+find /Users -name .DS_Store -delete
