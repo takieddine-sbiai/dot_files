@@ -1,5 +1,7 @@
 *
 !.aliases
+!.atom
+!.atom/**
 !.bash-completion.d
 !.bash-completion.d/*
 !.bash-git-prompt
@@ -18,4 +20,3 @@
 !.tmux.conf
 !.vimrc
 !README.md
-.atom
