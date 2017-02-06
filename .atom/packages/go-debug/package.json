@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117011-98600-7kp02k"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11716-5917-t3p9f9"
     ]
   ],
-  "_from": "../d-117011-98600-1u2exsn/package.tgz",
-  "_id": "go-debug@1.0.3",
+  "_from": "../d-11716-5917-13cr9tn/package.tgz",
+  "_id": "go-debug@1.0.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/go-debug",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117011-98600-1u2exsn/package.tgz",
-  "_shasum": "c41ced35a8fc221faa5ddf52d8f0afad2080450b",
+  "_resolved": "file:../d-11716-5917-13cr9tn/package.tgz",
+  "_shasum": "96b7e84d27734b4c4f0dbd56ec75423bc29302b9",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117011-98600-1u2exsn/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117011-98600-7kp02k",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5917-13cr9tn/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11716-5917-t3p9f9",
   "bugs": {
     "url": "https://github.com/lloiser/go-debug/issues"
   },
@@ -100,7 +100,7 @@
     "standard": "^8.6.0"
   },
   "engines": {
-    "atom": ">=1.9.9 <2.0.0"
+    "atom": ">=1.13.0 <2.0.0"
   },
   "homepage": "https://github.com/lloiser/go-debug#readme",
   "keywords": [
@@ -138,5 +138,5 @@
       "waitsForPromise"
     ]
   },
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

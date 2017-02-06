@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-41553-r2neek"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11716-5941-l540y2"
     ]
   ],
-  "_from": "../d-116119-41553-qu6384/package.tgz",
-  "_id": "vim-mode@0.65.2",
+  "_from": "../d-11716-5941-anz2qg/package.tgz",
+  "_id": "vim-mode@0.66.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/vim-mode",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116119-41553-qu6384/package.tgz",
-  "_shasum": "3952fdd675e97f80e4673e20f150a78a639fa12b",
+  "_resolved": "file:../d-11716-5941-anz2qg/package.tgz",
+  "_shasum": "d17be9214bc7fc6699f6ec7843da7002559c370e",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-41553-qu6384/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-41553-r2neek",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11716-5941-anz2qg/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11716-5941-l540y2",
   "bugs": {
     "url": "https://github.com/atom/vim-mode/issues"
   },
@@ -56,7 +56,7 @@
     "coffeelint": "^1.10.1"
   },
   "engines": {
-    "atom": ">=1.1.0"
+    "atom": ">=1.13.0"
   },
   "homepage": "https://github.com/atom/vim-mode#readme",
   "license": "MIT",
@@ -78,5 +78,5 @@
     "type": "git",
     "url": "git+https://github.com/atom/vim-mode.git"
   },
-  "version": "0.65.2"
+  "version": "0.66.0"
 }
