@@ -3,6 +3,9 @@
     snippetMode: "nameAndType"
   core:
     audioBeep: false
+    disabledPackages: [
+      "tab-switcher"
+    ]
     packagesWithKeymapsDisabled: [
       "hyperclick"
     ]
