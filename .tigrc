@@ -4,3 +4,5 @@ bind main    C !git checkout %(commit)
 
 set reference-format = (branch) <tag>
 set tab-size = 4
+
+set main-view = date:default author:email-user id commit-title:graph=v2,refs=true
