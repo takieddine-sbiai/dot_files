@@ -3,7 +3,7 @@
 import {BufferedProcess} from 'atom'
 import {spawnSync} from 'child_process'
 import {getenvironment} from './environment'
-import fs from 'fs-plus'
+import fs from 'fs-extra'
 import path from 'path'
 import {getEditor, projectPath} from '../utils'
 
@@ -51,11 +51,24 @@ class Executor {
         args = []
       }
 
+      let verbose = false
+      if (process.env.GOPLUSDEV || atom.config.get('go-plus.devMode')) {
+        verbose = true // Warning, this will get very verbose when typing
+      }
+      if (verbose) {
+        console.log('executing: ' + command + ' ' + args.join(' '))
+      }
+
       let stdout = ''
       let stderr = ''
       const stdoutFn = (data) => { stdout += data }
       const stderrFn = (data) => { stderr += data }
       const exitFn = (code) => {
+        if (verbose) {
+          console.log('exited with code: ' + code)
+          console.log('stderr: ' + stderr)
+          console.log('stdout: ' + stdout)
+        }
         if (stderr) {
           const nonexistentcommand = "'" + command + "' is not recognized as an internal or external command,operable program or batch file."
           if (stderr.replace(/\r?\n|\r/g, '') === nonexistentcommand) {

@@ -1,18 +1,14 @@
 'use babel'
 
-import { Emitter } from 'atom'
-import { getBreakpoint, getBreakpoints, getBreakpointByID } from './store-helper'
+import { getBreakpoint, getBreakpoints, getBreakpointByName } from './store-utils'
+import { position } from './breakpoint-utils'
 
-export default class Debugger extends Emitter {
+export default class Debugger {
   constructor (store, connection, addOutputMessage) {
-    super()
-
     this._connection = connection
     this._addOutputMessage = addOutputMessage
     this._store = store
     this._stopPromise = null
-
-    this.updateState = this.updateState.bind(this)
   }
 
   dispose () {
@@ -30,9 +26,17 @@ export default class Debugger extends Emitter {
       return Promise.resolve()
     }
 
-    this.emit('start', {})
+    if (!config) {
+      this._addOutputMessage('debug', `Please select a configuration in the debugger panel on the right.\n`)
+      return Promise.resolve()
+    }
 
     this._store.dispatch({ type: 'SET_STATE', state: 'starting' })
+
+    // clear the output panel
+    if (atom.config.get('go-debug.clearOutputOnStart') === true) {
+      this._addOutputMessage('clear')
+    }
 
     // start the debugger
     this._addOutputMessage('debug', `Starting delve with config "${config.name}"\n`)
@@ -95,63 +99,70 @@ export default class Debugger extends Emitter {
       return Promise.resolve()
     }
 
-    const bp = getBreakpoint(this._store, file, line)
+    let bp = getBreakpoint(this._store, file, line)
     if (bp && bp.state === 'busy') {
       // already being added
       return Promise.resolve()
     }
 
-    const fileAndLine = `${file}:${line + 1}`
+    if (!bp) {
+      this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, state: 'busy' } })
+    } else {
+      this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, state: 'busy' } })
+    }
+    bp = getBreakpoint(this._store, file, line)
+
+    const fileAndLine = position(bp)
     this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine}\n`)
-    this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, state: 'busy' } })
-    return this._addBreakpoint(file, line)
-      .then(({ id: delveID }) => {
+
+    return this._addBreakpoint(bp)
+      .then(({ id }) => {
         this._addOutputMessage('debug', `Added breakpoint @ ${fileAndLine}\n`)
-        this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, delveID, state: 'valid' } })
+        this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, id, state: 'valid' } })
       })
       .catch((err) => {
         this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
-        this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, state: 'invalid', message: err } })
+        this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, state: 'error', message: err } })
       })
   }
-  _addBreakpoint (file, line) {
-    return this._session.addBreakpoint({ file, line })
+  _addBreakpoint (bp) {
+    return this._session.addBreakpoint({ bp })
   }
 
   /**
-   * Removes a breakpoint set on the given file and line
-   * @param {string} file
-   * @param {number} line
+   * Removes a breakpoint
+   * @param {string} name
    * @return {Promise}
    */
-  removeBreakpoint (id) {
-    const bp = getBreakpointByID(this._store, id)
+  removeBreakpoint (name) {
+    const bp = getBreakpointByName(this._store, name)
     if (!bp) {
       return Promise.resolve()
     }
-    const { state, file, line } = bp
 
     const done = () => {
-      this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { id, state: 'removed' } })
+      this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { name } })
     }
 
-    if (state === 'invalid' || !this.isStarted()) {
+    if (bp.state === 'error' || !this.isStarted()) {
       return Promise.resolve().then(done)
     }
 
-    const fileAndLine = `${file}:${line + 1}`
+    const fileAndLine = position(bp)
     this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine}\n`)
-    this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { id, state: 'busy' } })
+
+    this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name, state: 'busy' } })
+
     return this._removeBreakpoint(bp)
       .then(() => this._addOutputMessage('debug', `Removed breakpoint @ ${fileAndLine}\n`))
       .then(done)
       .catch((err) => {
         this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
-        this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { id, state: 'invalid', message: err } })
+        this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name, state: 'error', message: err } })
       })
   }
   _removeBreakpoint (bp) {
-    return this._session.removeBreakpoint({ id: bp.delveID })
+    return this._session.removeBreakpoint({ id: bp.id })
   }
 
   /**
@@ -165,13 +176,40 @@ export default class Debugger extends Emitter {
     if (!bp) {
       return this.addBreakpoint(file, line)
     }
-    return this.removeBreakpoint(bp.id)
+    return this.removeBreakpoint(bp.name)
   }
 
-  updateBreakpointLine (id, newLine) {
-    // remove and add the breakpoint, this also updates the store correctly
-    const bp = getBreakpointByID(this._store, id)
-    this.removeBreakpoint(id).then(() => this.addBreakpoint(bp.file, newLine))
+  editBreakpoint (name, changes) {
+    const bp = getBreakpointByName(this._store, name)
+    if (!bp) {
+      return Promise.resolve()
+    }
+
+    const newBP = Object.assign({}, bp, changes)
+
+    const done = (bp) => {
+      this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp })
+    }
+    if (!this.isStarted()) {
+      // apply the changes immediately
+      done(newBP)
+      return Promise.resolve()
+    }
+
+    if (!bp.id) {
+      return this.addBreakpoint(bp.file, bp.line)
+    }
+
+    this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: Object.assign({}, newBP, { state: 'busy' }) })
+    return this._session.editBreakpoint({ bp: newBP })
+      .then(() => {
+        done(Object.assign({}, newBP, { state: 'valid' }))
+      })
+      .catch((err) => {
+        const fileAndLine = position(bp)
+        this._addOutputMessage('debug', `Updating breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
+        this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, state: 'error', message: err } })
+      })
   }
 
   /**
@@ -179,13 +217,7 @@ export default class Debugger extends Emitter {
    * @return {Promise}
    */
   resume () {
-    if (!this.isStarted()) {
-      return Promise.resolve()
-    }
-
-    return this._busy(
-      () => this._session.resume()
-    ).then(this.updateState)
+    return this.continueExecution('resume')
   }
 
   /**
@@ -193,13 +225,7 @@ export default class Debugger extends Emitter {
    * @return {Promise}
    */
   next () {
-    if (!this.isStarted()) {
-      return Promise.resolve()
-    }
-
-    return this._busy(
-      () => this._session.next()
-    ).then(this.updateState)
+    return this.continueExecution('next')
   }
 
   /**
@@ -207,13 +233,7 @@ export default class Debugger extends Emitter {
    * @return {Promise}
    */
   stepIn () {
-    if (!this.isStarted()) {
-      return Promise.resolve()
-    }
-
-    return this._busy(
-      () => this._session.stepIn()
-    ).then(this.updateState)
+    return this.continueExecution('stepIn')
   }
 
   /**
@@ -221,22 +241,32 @@ export default class Debugger extends Emitter {
    * @return {Promise}
    */
   stepOut () {
+    return this.continueExecution('stepOut')
+  }
+
+  continueExecution (fn) {
     if (!this.isStarted()) {
       return Promise.resolve()
     }
 
-    return this._busy(
-      () => this._session.stepOut()
-    ).then(this.updateState)
-  }
+    // clear the existing stacktrace and goroutines if the next delve
+    // request takes too long.
+    const id = setTimeout(() => {
+      this._store.dispatch({ type: 'UPDATE_STACKTRACE', stacktrace: [] })
+      this._store.dispatch({ type: 'UPDATE_GOROUTINES', goroutines: [] })
+    }, 250)
 
-  updateState (newState) {
-    if (newState.exited) {
-      return this.stop()
-    }
-    return this.getGoroutines() // get the new goroutines
-      .then(() => this.selectGoroutine(newState.goroutineID)) // select the current goroutine
-      .then(() => this.selectStacktrace(0)) // reselect the first stacktrace entry
+    return this._busy(
+      () => this._session[fn]()
+    ).then((newState) => {
+      clearTimeout(id)
+      if (newState.exited) {
+        return this.stop()
+      }
+      return this.getGoroutines() // get the new goroutines
+        .then(() => this.selectGoroutine(newState.goroutineID)) // select the current goroutine
+        .then(() => this.selectStacktrace(0)) // reselect the first stacktrace entry
+    })
   }
 
   /**

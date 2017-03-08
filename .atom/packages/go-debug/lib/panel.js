@@ -95,7 +95,7 @@ export class Panel extends EtchComponent {
     return <button key={cmd.cmd} type='button' className='btn go-debug-btn-flat'
       title={cmd.title} dataset={{ cmd: cmd.cmd }} onclick={this.handleCommandClick}>
       {cmd.icon ? <span className={'icon-' + cmd.icon} /> : null}
-      {cmd.text}
+      {cmd.text || ''}
     </button>
   }
 
@@ -157,7 +157,7 @@ export class Panel extends EtchComponent {
   handleStartConfig () {
     const { selectedConfig, configurations } = this.props
     const config = configurations.reduce(
-      (v, c) => c && c.configs.find(({ name }) => name === selectedConfig) || v,
+      (v, c) => (c && c.configs.find(({ name }) => name === selectedConfig)) || v,
       null
     )
     const editor = atom.workspace.getActiveTextEditor()
@@ -192,6 +192,13 @@ export class PanelManager {
     this._dbg = dbg
     this._commands = commands
 
+    // show the panel whenever the user starts a new session via the keyboard shortcut
+    commands.onExecute = (key) => {
+      if (key === 'start') {
+        this.togglePanel(true)
+      }
+    }
+
     this._subscriptions = new CompositeDisposable(
       atom.commands.add('atom-workspace', {
         'go-debug:toggle-panel': () => this.togglePanel(!this._atomPanel.isVisible())
@@ -204,9 +211,6 @@ export class PanelManager {
       item: this._component.element,
       visible: atom.config.get('go-debug.panelInitialVisible') || false
     })
-
-    this.handleDbgStart = this.handleDbgStart.bind(this)
-    this._dbg.on('start', this.handleDbgStart)
   }
 
   dispose () {
@@ -218,12 +222,6 @@ export class PanelManager {
 
     this._atomPanel.destroy()
     this._atomPanel = null
-
-    this._dbg.off('start', this.handleDbgStart)
-  }
-
-  handleDbgStart () {
-    this.togglePanel(true)
   }
 
   togglePanel (visible) {

@@ -2,11 +2,10 @@
 
 import {CompositeDisposable} from 'atom'
 import _ from 'lodash'
-import fs from 'fs'
+import fs from 'fs-extra'
 import os from 'os'
 import parser from './gocover-parser'
 import path from 'path'
-import rimraf from 'rimraf'
 import temp from 'temp'
 import {getEditor, isValidEditor} from '../utils'
 
@@ -98,7 +97,6 @@ class Tester {
       bufferSubscriptions.add(editor.getBuffer().onDidSave((filePath) => {
         if (atom.config.get('go-plus.test.runTestsOnSave')) {
           this.runTests(editor)
-          return
         }
       }))
       bufferSubscriptions.add(editor.getBuffer().onDidDestroy(() => {
@@ -202,7 +200,7 @@ class Tester {
 
   removeTempDir () {
     if (this.tempDir) {
-      rimraf(this.tempDir, (e) => {
+      fs.remove(this.tempDir, (e) => {
         if (e) {
           if (e.handle) {
             e.handle()
@@ -239,8 +237,11 @@ class Tester {
         return
       }
       this.running = true
+      const runTestsWithCoverage = atom.config.get('go-plus.test.runTestsWithCoverage')
       this.clearMarkersFromEditors()
-      this.createCoverageFile()
+      if (runTestsWithCoverage) {
+        this.createCoverageFile()
+      }
       let go = false
       let cover = false
       return this.goconfig.locator.findTool('go').then((cmd) => {
@@ -268,7 +269,10 @@ class Tester {
           executorOptions.timeout = 60000
         }
         const cmd = go
-        const args = ['test', '-timeout=' + executorOptions.timeout + 'ms', '-coverprofile=' + this.coverageFile]
+        const args = ['test', '-timeout=' + executorOptions.timeout + 'ms']
+        if (runTestsWithCoverage) {
+          args.push('-coverprofile=' + this.coverageFile)
+        }
         if (atom.config.get('go-plus.test.runTestsWithShortFlag')) {
           args.push('-short')
         }
@@ -286,8 +290,10 @@ class Tester {
           }
 
           if (r.exitcode === 0) {
-            this.ranges = parser.ranges(this.coverageFile)
-            this.addMarkersToEditors()
+            if (runTestsWithCoverage) {
+              this.ranges = parser.ranges(this.coverageFile)
+              this.addMarkersToEditors()
+            }
             if (this.testPanelManager) {
               this.testPanelManager.update({exitcode: r.exitcode, output: output.trim(), state: 'success'})
             }

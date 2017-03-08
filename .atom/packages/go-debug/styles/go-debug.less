@@ -24,7 +24,7 @@ button.go-debug-btn-flat {
   &-state-valid {
     background-color: currentColor;
   }
-  &-state-invalid {
+  &-state-error {
     border-color: orange;
     background-color: orange;
   }
@@ -49,7 +49,6 @@ atom-text-editor {
   flex: 1;
   width: @go-debug-panel-size;
   position: relative;
-  border-left: 1px solid @tool-panel-border-color;
 }
 
 .go-debug-panel-resizer {
@@ -164,6 +163,16 @@ atom-text-editor {
   }
 }
 
+.go-debug-panel-stacktrace,
+.go-debug-panel-goroutines,
+.go-debug-panel-variables,
+.go-debug-panel-breakpoints {
+  &-empty {
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
 .go-debug-output {
   flex: 1;
   display: flex;
@@ -186,6 +195,14 @@ atom-text-editor {
     > * {
       display: block;
     }
+  }
+}
+.go-plus-panel.is-vertical .go-debug-output {
+  flex-direction: column;
+
+  .buttons {
+    border-right: 0;
+    border-bottom: 1px solid @base-border-color;
   }
 }
 

@@ -11,11 +11,14 @@ export default {
   getservice: null,
   godoc: null,
   gorename: null,
+  gomodifytags: null,
   loaded: null,
   panelManager: null,
   statusbar: null,
   subscriptions: null,
   tester: null,
+  usage: null,
+  what: null,
 
   activate () {
     this.subscriptions = new CompositeDisposable()
@@ -55,8 +58,11 @@ export default {
     this.autocompleteProvider = null
     this.godoc = null
     this.gorename = null
+    this.gomodifytags = null
     this.godef = null
     this.hyperclickProvider = null
+    this.usage = null
+    this.what = null
   },
 
   load () {
@@ -65,7 +71,10 @@ export default {
     this.loadFormatter()
     this.loadTester()
     this.loadDoc()
+    this.loadUsage()
+    this.loadWhat()
     this.loadGorename()
+    this.loadGoModifyTags()
     this.getGodef()
     if (!atom.config.get('go-plus.testing')) {
       this.loadPackageManager()
@@ -116,28 +125,44 @@ export default {
     return this.godoc
   },
 
-  loadGuru () {
-    if (this.guru) {
-      return this.guru
+  loadUsage () {
+    if (this.usage) {
+      return this.usage
     }
 
     // Model
-    const {Guru} = require('./guru/guru')
-    this.guru = new Guru(this.provideGoConfig())
+    const {Usage} = require('./usage/usage')
+    this.usage = new Usage(this.provideGoConfig())
 
     // View
-    const GuruView = require('./doc/guru-view')
+    const UsageView = require('./usage/usage-view')
     const view = this.consumeViewProvider({
-      view: GuruView,
-      model: this.guru
+      view: UsageView,
+      model: this.usage
     })
 
     if (this.subscriptions) {
-      this.subscriptions.add(this.guru)
+      this.subscriptions.add(this.usage)
       this.subscriptions.add(view)
     }
 
-    return this.guru
+    return this.usage
+  },
+
+  loadWhat () {
+    if (this.what) {
+      return this.what
+    }
+
+    // Model
+    const {What} = require('./what/what')
+    this.what = new What(this.provideGoConfig())
+
+    if (this.subscriptions) {
+      this.subscriptions.add(this.what)
+    }
+
+    return this.what
   },
 
   loadFormatter () {
@@ -194,6 +219,18 @@ export default {
     }
 
     return this.gorename
+  },
+
+  loadGoModifyTags () {
+    if (this.gomodifytags) {
+      return this.gomodifytags
+    }
+    const GoModifyTags = require('./tags/gomodifytags')
+    this.gomodifytags = new GoModifyTags(this.provideGoConfig())
+    if (this.subscriptions) {
+      this.subscriptions.add(this.gomodifytags)
+    }
+    return this.gomodifytags
   },
 
   getBuilder () {

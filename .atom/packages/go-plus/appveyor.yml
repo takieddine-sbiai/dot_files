@@ -11,7 +11,7 @@ skip_tags: true
 
 environment:
   GOPATH: c:\gopath
-  GOVERSION: 1.7
+  GOVERSION: 1.8
   APM_TEST_PACKAGES: linter go-signature-statusbar go-debug hyperclick
 
   matrix:
@@ -33,10 +33,11 @@ install:
   - go get -u github.com/alecthomas/gometalinter
   - go get -u github.com/zmb3/gogetdoc
   - go get -u github.com/rogpeppe/godef
+  - go get -u github.com/fatih/gomodifytags
   - go get -u golang.org/x/tools/cmd/guru
 
 build_script:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/943a16cd32926bdfcca703f16ec6a958a2db38a5/build-package.ps1'))
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))
 
 test: off
 deploy: off

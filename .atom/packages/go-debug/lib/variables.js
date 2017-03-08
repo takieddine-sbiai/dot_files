@@ -12,8 +12,12 @@ export class Variables extends EtchComponent {
     super(props, children)
   }
   render () {
+    const variables = this.props.variables || {}
+    if (Object.keys(variables).length === 0) {
+      return <div className='go-debug-panel-variables-empty'>No variables</div>
+    }
     return <div className='go-debug-panel-variables native-key-bindings' onclick={this.handleToggleClick} tabIndex={-1}>
-      <Children variables={this.props.variables} path={''} expanded={this.props.expanded} />
+      <Children variables={variables} path={''} expanded={this.props.expanded} />
     </div>
   }
   handleToggleClick (ev) {
@@ -87,10 +91,10 @@ class Variable extends EtchComponent {
     return <li>
       <div>
         <span className={toggleClassName} dataset={{ path }} />
-        {name}
-        {value}
+        {name || ''}
+        {value || ''}
       </div>
-      {isExpanded ? <Children variables={variables} path={path} expanded={expanded} /> : null}
+      {isExpanded ? <Children variables={variables} path={path} expanded={expanded} /> : ''}
     </li>
   }
 }

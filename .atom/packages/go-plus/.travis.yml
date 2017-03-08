@@ -1,12 +1,9 @@
 language: go
 
 go:
-  - 1.7
-  - tip
+  - 1.8
 
 matrix:
-  allow_failures:
-  - go: tip
   fast_finish: true
 
 os:
@@ -26,6 +23,7 @@ notifications:
     on_failure: change
 
 install:
+  - nvm install 6
   - go get -u golang.org/x/tools/cmd/goimports
   - go get -u golang.org/x/tools/cmd/gorename
   - go get -u github.com/sqs/goreturns
@@ -33,10 +31,11 @@ install:
   - go get -u github.com/alecthomas/gometalinter
   - go get -u github.com/zmb3/gogetdoc
   - go get -u github.com/rogpeppe/godef
+  - go get -u github.com/fatih/gomodifytags
   - go get -u golang.org/x/tools/cmd/guru
 
 script:
-  - 'curl -s https://raw.githubusercontent.com/atom/ci/943a16cd32926bdfcca703f16ec6a958a2db38a5/build-package.sh | sh'
+  - 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
 
 sudo: false
 

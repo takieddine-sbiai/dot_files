@@ -15,7 +15,7 @@ export default class DelveConnection {
 
   start ({ config, file }) {
     if (this._session) {
-      return Promise.reject('Already debugging!')
+      return Promise.reject(new Error('Already debugging!'))
     }
 
     return new Promise((resolve, reject) => {
@@ -41,7 +41,6 @@ export default class DelveConnection {
           this._connect(port, host)
             .then((conn) => {
               this._session = this._newSession(proc, conn, mode)
-              this._session.addOutputMessage = this._addOutputMessage
               resolve(this._session)
             })
             .catch(reject)
@@ -84,7 +83,7 @@ export default class DelveConnection {
           this._addOutputMessage('debug', 'delve closed with code ' + (code || 0) + '\n')
           close()
           if (code) {
-            reject('Closed with code ' + code)
+            reject(new Error('Closed with code ' + code))
           }
         })
         proc.on('error', (err) => {

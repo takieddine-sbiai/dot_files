@@ -1,6 +1,9 @@
 'use babel'
 
 import { CompositeDisposable } from 'atom'
+import { elementPropInHierarcy } from './utils'
+import { editBreakpointCondition } from './breakpoint-condition'
+import { getBreakpointByName } from './store-utils'
 
 function currentEditor () {
   return atom.workspace.getActiveTextEditor()
@@ -23,13 +26,13 @@ const commands = {
     title: 'Start this configuration',
     action: (store, dbg) => {
       const { selectedConfig, configurations } = store.getState()
-      if (!selectedConfig) {
-        return // no config to start
+      let config
+      if (selectedConfig) {
+        config = configurations.reduce(
+          (v, c) => (c && c.configs.find(({ name }) => name === selectedConfig)) || v,
+          null
+        )
       }
-      const config = configurations.reduce(
-        (v, c) => c && c.configs.find(({ name }) => name === selectedConfig) || v,
-        null
-      )
       dbg.start(config, currentFile())
     }
   },
@@ -100,7 +103,10 @@ export default class Commands {
 
     this._subscriptions = new CompositeDisposable()
     this._subscriptions.add(
-      atom.config.observe('go-debug.limitCommandsToGo', this.observeCommandsLimit.bind(this))
+      atom.config.observe('go-debug.limitCommandsToGo', this.observeCommandsLimit.bind(this)),
+      atom.commands.add('atom-workspace', {
+        'go-debug:edit-breakpoint-condition': this.handleBreakpointCondition.bind(this)
+      })
     )
 
     this._commands = commands
@@ -108,6 +114,9 @@ export default class Commands {
   }
 
   execute (n) {
+    if (this.onExecute) {
+      this.onExecute(n)
+    }
     this._commands[n].action(this._store, this._dbg)
   }
 
@@ -123,6 +132,17 @@ export default class Commands {
     }
     this._keyboardSubscription = atom.commands.add(selector, this._keyboardCommands)
     this._subscriptions.add(this._keyboardSubscription)
+  }
+
+  handleBreakpointCondition (ev) {
+    const name = elementPropInHierarcy(ev.target, 'dataset.name')
+    if (!name) {
+      return
+    }
+    const bp = getBreakpointByName(this._store, name)
+    editBreakpointCondition(bp).then((cond) => {
+      this._dbg.editBreakpoint(name, { cond })
+    })
   }
 
   dispose () {
