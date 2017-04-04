@@ -48,3 +48,7 @@ fi
 if [ -z $TMUX ]; then
     tmux attach-session -t main
 fi
+
+# the fuck
+# https://github.com/nvbn/thefuck
+which thefuck && eval $(thefuck --alias)
