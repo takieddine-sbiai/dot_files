@@ -51,4 +51,4 @@ fi
 
 # the fuck
 # https://github.com/nvbn/thefuck
-which thefuck && eval $(thefuck --alias)
+which -s thefuck && eval $(thefuck --alias)
