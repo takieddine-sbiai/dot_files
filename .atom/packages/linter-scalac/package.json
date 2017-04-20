@@ -1,0 +1,78 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117320-8469-icshty"
+    ]
+  ],
+  "_from": "../d-117320-8469-1nyn3ys/package.tgz",
+  "_id": "linter-scalac@1.4.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/linter-scalac",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117320-8469-1nyn3ys/package.tgz",
+  "_shasum": "c5ccde7c4e8bb47c8795e849db114c32235e37d1",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8469-1nyn3ys/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117320-8469-icshty",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-scalac/issues"
+  },
+  "dependencies": {
+    "atom-linter": "^9.0.0",
+    "atom-package-deps": "^4.4.0",
+    "glob": "^7.0.0",
+    "mkdirp": "^0.5.1"
+  },
+  "description": "Lint Scala on the fly, using scalac. Also possible to use other Scala linters, such as WartRemover, via compiler options.",
+  "devDependencies": {
+    "promised-exec": "1.0.1",
+    "rimraf": "^2.5.0"
+  },
+  "engines": {
+    "atom": ">0.90.0"
+  },
+  "homepage": "https://github.com/AtomLinter/linter-scalac#readme",
+  "license": "MIT",
+  "main": "./lib/linter-scalac",
+  "name": "linter-scalac",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# linter-scalac\n\n[![Circle CI Status](https://img.shields.io/circleci/project/AtomLinter/linter-scalac/master.svg?style=flat-square&label=linux)](https://circleci.com/gh/AtomLinter/linter-scalac)\n[![Travis CI Status](https://img.shields.io/travis/AtomLinter/linter-scalac/master.svg?style=flat-square&label=os%20x)](https://travis-ci.org/AtomLinter/linter-scalac)\n[![AppVeyor Status](https://img.shields.io/appveyor/ci/andystanton/linter-scalac-3ymif/master.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/andystanton/linter-scalac-3ymif)\n\nLint Scala using scalac.\n\n## Installation\n\n```sh\n$ apm install linter-scalac\n```\n\n## Configuration\n\nVia `config.json`:\n\n```coffeescript\n'linter-scalac':\n\n  # Execute `which scala` to determine your own path.\n  # By default the scalac binary is resolved from your path.\n  'scalacExecutablePath': 'scalac'\n\n  # Execute `scalac -X` and `scalac -Y` for a handful of useful options.\n  'scalacOptions': '-Xlint -P:wartremover:traverser:org.brianmckenna.wartremover.warts.Unsafe'\n\n  # Write the compiled classes to the location specified in .classpath\n  'compileClassesToClasspath': false\n\n  # Compile all Scala files in the project on lint.\n  'compileAllClassesOnLint': false\n```\n\nIt is also possible to configure these settings via the GUI:\n\n`Atom` > `Preferences` > `linter-scalac`\n\n## Classpath\n\nIt is strongly recommended that you utilize a `.classpath` file in the root of\nyour project. While linter-scalac will work without it, you will be given\nnumerous invalid errors and warnings due to the lack of a proper classpath\npassed to scalac. The `.classpath` file should simply contain the project's\nfull classpath, which is easily generated via SBT:\n\n```ShellSession\nsbt 'export fullClasspath'\n```\n\n## Notes\n\n1. If your SBT project uses a multi-project setup, you will need a `.classpath` for each subproject.\n\n2. If your SBT project uses a multi-project setup, you cannot use the project root as the Atom project. You must treat each SBT subproject as its own Atom project.\n\n3. It is assumed that the first path in `.classpath` is your compiled classes directory (the SBT command above does this automatically). Assuming this is true, it will play nice with SBT. Performing SBT tasks will update linter-scalac compiled files and vice-versa.</sub>\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-scalac.git"
+  },
+  "version": "1.4.4"
+}
