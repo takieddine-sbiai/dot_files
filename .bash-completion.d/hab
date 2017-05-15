@@ -1,0 +1,5092 @@
+_hab() {
+    local i cur prev opts cmds
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    cmd=""
+    opts=""
+
+    for i in ${COMP_WORDS[@]}
+    do
+        case "${i}" in
+            hab)
+                cmd="hab"
+                ;;
+            
+            a)
+                cmd+="__a"
+                ;;
+            ap)
+                cmd+="__ap"
+                ;;
+            app)
+                cmd+="__app"
+                ;;
+            appl)
+                cmd+="__appl"
+                ;;
+            apply)
+                cmd+="__apply"
+                ;;
+            bi)
+                cmd+="__bi"
+                ;;
+            bin)
+                cmd+="__bin"
+                ;;
+            binl)
+                cmd+="__binl"
+                ;;
+            binli)
+                cmd+="__binli"
+                ;;
+            binlin)
+                cmd+="__binlin"
+                ;;
+            binlink)
+                cmd+="__binlink"
+                ;;
+            bu)
+                cmd+="__bu"
+                ;;
+            bui)
+                cmd+="__bui"
+                ;;
+            buil)
+                cmd+="__buil"
+                ;;
+            build)
+                cmd+="__build"
+                ;;
+            c)
+                cmd+="__c"
+                ;;
+            cfg)
+                cmd+="__cfg"
+                ;;
+            cl)
+                cmd+="__cl"
+                ;;
+            cli)
+                cmd+="__cli"
+                ;;
+            co)
+                cmd+="__co"
+                ;;
+            com)
+                cmd+="__com"
+                ;;
+            comp)
+                cmd+="__comp"
+                ;;
+            completers)
+                cmd+="__completers"
+                ;;
+            con)
+                cmd+="__con"
+                ;;
+            conf)
+                cmd+="__conf"
+                ;;
+            confi)
+                cmd+="__confi"
+                ;;
+            config)
+                cmd+="__config"
+                ;;
+            d)
+                cmd+="__d"
+                ;;
+            do)
+                cmd+="__do"
+                ;;
+            dow)
+                cmd+="__dow"
+                ;;
+            down)
+                cmd+="__down"
+                ;;
+            downl)
+                cmd+="__downl"
+                ;;
+            downlo)
+                cmd+="__downlo"
+                ;;
+            downloa)
+                cmd+="__downloa"
+                ;;
+            download)
+                cmd+="__download"
+                ;;
+            e)
+                cmd+="__e"
+                ;;
+            env)
+                cmd+="__env"
+                ;;
+            ex)
+                cmd+="__ex"
+                ;;
+            exe)
+                cmd+="__exe"
+                ;;
+            exec)
+                cmd+="__exec"
+                ;;
+            exp)
+                cmd+="__exp"
+                ;;
+            expo)
+                cmd+="__expo"
+                ;;
+            expor)
+                cmd+="__expor"
+                ;;
+            export)
+                cmd+="__export"
+                ;;
+            f)
+                cmd+="__f"
+                ;;
+            fi)
+                cmd+="__fi"
+                ;;
+            fil)
+                cmd+="__fil"
+                ;;
+            file)
+                cmd+="__file"
+                ;;
+            g)
+                cmd+="__g"
+                ;;
+            ge)
+                cmd+="__ge"
+                ;;
+            gen)
+                cmd+="__gen"
+                ;;
+            gene)
+                cmd+="__gene"
+                ;;
+            gener)
+                cmd+="__gener"
+                ;;
+            genera)
+                cmd+="__genera"
+                ;;
+            generat)
+                cmd+="__generat"
+                ;;
+            generate)
+                cmd+="__generate"
+                ;;
+            ha)
+                cmd+="__ha"
+                ;;
+            has)
+                cmd+="__has"
+                ;;
+            hash)
+                cmd+="__hash"
+                ;;
+            hea)
+                cmd+="__hea"
+                ;;
+            head)
+                cmd+="__head"
+                ;;
+            heade)
+                cmd+="__heade"
+                ;;
+            header)
+                cmd+="__header"
+                ;;
+            help)
+                cmd+="__help"
+                ;;
+            i)
+                cmd+="__i"
+                ;;
+            im)
+                cmd+="__im"
+                ;;
+            imp)
+                cmd+="__imp"
+                ;;
+            impo)
+                cmd+="__impo"
+                ;;
+            impor)
+                cmd+="__impor"
+                ;;
+            import)
+                cmd+="__import"
+                ;;
+            in)
+                cmd+="__in"
+                ;;
+            ini)
+                cmd+="__ini"
+                ;;
+            init)
+                cmd+="__init"
+                ;;
+            ins)
+                cmd+="__ins"
+                ;;
+            inst)
+                cmd+="__inst"
+                ;;
+            insta)
+                cmd+="__insta"
+                ;;
+            instal)
+                cmd+="__instal"
+                ;;
+            install)
+                cmd+="__install"
+                ;;
+            k)
+                cmd+="__k"
+                ;;
+            ke)
+                cmd+="__ke"
+                ;;
+            key)
+                cmd+="__key"
+                ;;
+            load)
+                cmd+="__load"
+                ;;
+            o)
+                cmd+="__o"
+                ;;
+            or)
+                cmd+="__or"
+                ;;
+            ori)
+                cmd+="__ori"
+                ;;
+            orig)
+                cmd+="__orig"
+                ;;
+            origi)
+                cmd+="__origi"
+                ;;
+            origin)
+                cmd+="__origin"
+                ;;
+            p)
+                cmd+="__p"
+                ;;
+            pa)
+                cmd+="__pa"
+                ;;
+            package)
+                cmd+="__package"
+                ;;
+            pat)
+                cmd+="__pat"
+                ;;
+            path)
+                cmd+="__path"
+                ;;
+            pk)
+                cmd+="__pk"
+                ;;
+            pkg)
+                cmd+="__pkg"
+                ;;
+            pl)
+                cmd+="__pl"
+                ;;
+            pla)
+                cmd+="__pla"
+                ;;
+            plan)
+                cmd+="__plan"
+                ;;
+            provides)
+                cmd+="__provides"
+                ;;
+            r)
+                cmd+="__r"
+                ;;
+            ri)
+                cmd+="__ri"
+                ;;
+            rin)
+                cmd+="__rin"
+                ;;
+            ring)
+                cmd+="__ring"
+                ;;
+            s)
+                cmd+="__s"
+                ;;
+            se)
+                cmd+="__se"
+                ;;
+            search)
+                cmd+="__search"
+                ;;
+            ser)
+                cmd+="__ser"
+                ;;
+            serv)
+                cmd+="__serv"
+                ;;
+            servi)
+                cmd+="__servi"
+                ;;
+            servic)
+                cmd+="__servic"
+                ;;
+            service)
+                cmd+="__service"
+                ;;
+            set)
+                cmd+="__set"
+                ;;
+            setu)
+                cmd+="__setu"
+                ;;
+            setup)
+                cmd+="__setup"
+                ;;
+            si)
+                cmd+="__si"
+                ;;
+            sig)
+                cmd+="__sig"
+                ;;
+            sign)
+                cmd+="__sign"
+                ;;
+            st)
+                cmd+="__st"
+                ;;
+            sta)
+                cmd+="__sta"
+                ;;
+            star)
+                cmd+="__star"
+                ;;
+            start)
+                cmd+="__start"
+                ;;
+            stop)
+                cmd+="__stop"
+                ;;
+            stu)
+                cmd+="__stu"
+                ;;
+            stud)
+                cmd+="__stud"
+                ;;
+            studi)
+                cmd+="__studi"
+                ;;
+            studio)
+                cmd+="__studio"
+                ;;
+            su)
+                cmd+="__su"
+                ;;
+            sup)
+                cmd+="__sup"
+                ;;
+            u)
+                cmd+="__u"
+                ;;
+            unload)
+                cmd+="__unload"
+                ;;
+            up)
+                cmd+="__up"
+                ;;
+            upl)
+                cmd+="__upl"
+                ;;
+            uplo)
+                cmd+="__uplo"
+                ;;
+            uploa)
+                cmd+="__uploa"
+                ;;
+            upload)
+                cmd+="__upload"
+                ;;
+            us)
+                cmd+="__us"
+                ;;
+            use)
+                cmd+="__use"
+                ;;
+            user)
+                cmd+="__user"
+                ;;
+            v)
+                cmd+="__v"
+                ;;
+            ve)
+                cmd+="__ve"
+                ;;
+            ver)
+                cmd+="__ver"
+                ;;
+            veri)
+                cmd+="__veri"
+                ;;
+            verif)
+                cmd+="__verif"
+                ;;
+            verify)
+                cmd+="__verify"
+                ;;
+            *)
+                ;;
+        esac
+    done
+
+    case "${cmd}" in
+        hab)
+            opts=" -h -V  --help --version   cli config file origin pkg plan ring service studio sup user apply install setup start help  cl  co con conf confi  f fi fil  o or ori orig origi  p pk package  pl pla  r ri rin  se ser serv servi servic  stu stud studi  su  u us use  ap app appl  i in ins inst insta instal  set setu  st sta star"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        
+        hab__ap)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__app)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__appl)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__apply)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cl)
+            opts=" -h -V  --help --version   setup completers help  s se set setu  c co com comp"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli)
+            opts=" -h -V  --help --version   setup completers help  s se set setu  c co com comp"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__c)
+            opts=" -s -h -V  --shell --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --shell)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__co)
+            opts=" -s -h -V  --shell --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --shell)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__com)
+            opts=" -s -h -V  --shell --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --shell)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__comp)
+            opts=" -s -h -V  --shell --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --shell)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__completers)
+            opts=" -s -h -V  --shell --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --shell)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=($(compgen -W "bash fish zsh powershell" -- ${cur}))
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__s)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__se)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__set)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__setu)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__cli__setup)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__co)
+            opts=" -h -V  --help --version   apply help  a ap app appl"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__con)
+            opts=" -h -V  --help --version   apply help  a ap app appl"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__conf)
+            opts=" -h -V  --help --version   apply help  a ap app appl"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__confi)
+            opts=" -h -V  --help --version   apply help  a ap app appl"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config)
+            opts=" -h -V  --help --version   apply help  a ap app appl"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config__a)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config__ap)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config__app)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config__appl)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config__apply)
+            opts=" -p -r -h -V  --peer --ring --org --help --version  <SERVICE_GROUP> <VERSION_NUMBER> <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__config__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__f)
+            opts=" -h -V  --help --version   upload help  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__fi)
+            opts=" -h -V  --help --version   upload help  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__fil)
+            opts=" -h -V  --help --version   upload help  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file)
+            opts=" -h -V  --help --version   upload help  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__u)
+            opts=" -p -r -h -V  --org --peer --ring --help --version  <SERVICE_GROUP> <FILE> <VERSION_NUMBER> <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__up)
+            opts=" -p -r -h -V  --org --peer --ring --help --version  <SERVICE_GROUP> <FILE> <VERSION_NUMBER> <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__upl)
+            opts=" -p -r -h -V  --org --peer --ring --help --version  <SERVICE_GROUP> <FILE> <VERSION_NUMBER> <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__uplo)
+            opts=" -p -r -h -V  --org --peer --ring --help --version  <SERVICE_GROUP> <FILE> <VERSION_NUMBER> <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__uploa)
+            opts=" -p -r -h -V  --org --peer --ring --help --version  <SERVICE_GROUP> <FILE> <VERSION_NUMBER> <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__file__upload)
+            opts=" -p -r -h -V  --org --peer --ring --help --version  <SERVICE_GROUP> <FILE> <VERSION_NUMBER> <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --org)
+                    COMPREPLY=("<ORG>")
+                    return 0
+                    ;;
+                --peer)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                    -p)
+                    COMPREPLY=("<PEER>")
+                    return 0
+                    ;;
+                --ring)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<RING>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__i)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__in)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ins)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__inst)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__insta)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__instal)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__install)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__o)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__or)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ori)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__orig)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origi)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__k)
+            opts=" -h -V  --help --version   download export generate import upload help  d do dow down downl downlo downloa  e ex exp expo expor  g ge gen gene gener genera generat  i im imp impo impor  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__ke)
+            opts=" -h -V  --help --version   download export generate import upload help  d do dow down downl downlo downloa  e ex exp expo expor  g ge gen gene gener genera generat  i im imp impo impor  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key)
+            opts=" -h -V  --help --version   download export generate import upload help  d do dow down downl downlo downloa  e ex exp expo expor  g ge gen gene gener genera generat  i im imp impo impor  u up upl uplo uploa"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__d)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__do)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__dow)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__down)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__downl)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__downlo)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__downloa)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__download)
+            opts=" -u -h -V  --url --help --version  <ORIGIN> <REVISION> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__e)
+            opts=" -t -h -V  --type --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --type)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                    -t)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__ex)
+            opts=" -t -h -V  --type --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --type)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                    -t)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__exp)
+            opts=" -t -h -V  --type --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --type)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                    -t)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__expo)
+            opts=" -t -h -V  --type --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --type)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                    -t)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__expor)
+            opts=" -t -h -V  --type --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --type)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                    -t)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__export)
+            opts=" -t -h -V  --type --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --type)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                    -t)
+                    COMPREPLY=("<PAIR_TYPE>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__g)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__ge)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__gen)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__gene)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__gener)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__genera)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__generat)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__generate)
+            opts=" -h -V  --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__i)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__im)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__imp)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__impo)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__impor)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__import)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__u)
+            opts=" -s -u -z -h -V  --pubfile --secret --secfile --url --auth --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --pubfile)
+                    COMPREPLY=("<PUBLIC_FILE>")
+                    return 0
+                    ;;
+                --secfile)
+                    COMPREPLY=("<SECRET_FILE>")
+                    return 0
+                    ;;
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__up)
+            opts=" -s -u -z -h -V  --pubfile --secret --secfile --url --auth --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --pubfile)
+                    COMPREPLY=("<PUBLIC_FILE>")
+                    return 0
+                    ;;
+                --secfile)
+                    COMPREPLY=("<SECRET_FILE>")
+                    return 0
+                    ;;
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__upl)
+            opts=" -s -u -z -h -V  --pubfile --secret --secfile --url --auth --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --pubfile)
+                    COMPREPLY=("<PUBLIC_FILE>")
+                    return 0
+                    ;;
+                --secfile)
+                    COMPREPLY=("<SECRET_FILE>")
+                    return 0
+                    ;;
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__uplo)
+            opts=" -s -u -z -h -V  --pubfile --secret --secfile --url --auth --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --pubfile)
+                    COMPREPLY=("<PUBLIC_FILE>")
+                    return 0
+                    ;;
+                --secfile)
+                    COMPREPLY=("<SECRET_FILE>")
+                    return 0
+                    ;;
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__uploa)
+            opts=" -s -u -z -h -V  --pubfile --secret --secfile --url --auth --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --pubfile)
+                    COMPREPLY=("<PUBLIC_FILE>")
+                    return 0
+                    ;;
+                --secfile)
+                    COMPREPLY=("<SECRET_FILE>")
+                    return 0
+                    ;;
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__origin__key__upload)
+            opts=" -s -u -z -h -V  --pubfile --secret --secfile --url --auth --help --version  <ORIGIN> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --pubfile)
+                    COMPREPLY=("<PUBLIC_FILE>")
+                    return 0
+                    ;;
+                --secfile)
+                    COMPREPLY=("<SECRET_FILE>")
+                    return 0
+                    ;;
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__p)
+            opts=" -h -V  --help --version   binlink config build env exec export hash install path provides search sign upload verify header help  bi bin binl binli binlin  conf cfg  bu bui buil  exe  exp  ha has  i in ins inst insta instal  p pa pat  s si sig  u up upl uplo uploa  v ve ver veri verif  hea head heade header"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__package)
+            opts=" -h -V  --help --version   binlink config build env exec export hash install path provides search sign upload verify header help  bi bin binl binli binlin  conf cfg  bu bui buil  exe  exp  ha has  i in ins inst insta instal  p pa pat  s si sig  u up upl uplo uploa  v ve ver veri verif  hea head heade header"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pk)
+            opts=" -h -V  --help --version   binlink config build env exec export hash install path provides search sign upload verify header help  bi bin binl binli binlin  conf cfg  bu bui buil  exe  exp  ha has  i in ins inst insta instal  p pa pat  s si sig  u up upl uplo uploa  v ve ver veri verif  hea head heade header"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg)
+            opts=" -h -V  --help --version   binlink config build env exec export hash install path provides search sign upload verify header help  bi bin binl binli binlin  conf cfg  bu bui buil  exe  exp  ha has  i in ins inst insta instal  p pa pat  s si sig  u up upl uplo uploa  v ve ver veri verif  hea head heade header"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__bi)
+            opts=" -d -h -V  --dest --help --version  <PKG_IDENT> <BINARY> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --dest)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                    -d)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__bin)
+            opts=" -d -h -V  --dest --help --version  <PKG_IDENT> <BINARY> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --dest)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                    -d)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__binl)
+            opts=" -d -h -V  --dest --help --version  <PKG_IDENT> <BINARY> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --dest)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                    -d)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__binli)
+            opts=" -d -h -V  --dest --help --version  <PKG_IDENT> <BINARY> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --dest)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                    -d)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__binlin)
+            opts=" -d -h -V  --dest --help --version  <PKG_IDENT> <BINARY> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --dest)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                    -d)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__binlink)
+            opts=" -d -h -V  --dest --help --version  <PKG_IDENT> <BINARY> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --dest)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                    -d)
+                    COMPREPLY=("<DEST_DIR>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__bu)
+            opts=" -k -r -s -h -V  --keys --root --src --help --version  <PLAN_CONTEXT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --keys)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                    -k)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                --root)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                --src)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__bui)
+            opts=" -k -r -s -h -V  --keys --root --src --help --version  <PLAN_CONTEXT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --keys)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                    -k)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                --root)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                --src)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__buil)
+            opts=" -k -r -s -h -V  --keys --root --src --help --version  <PLAN_CONTEXT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --keys)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                    -k)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                --root)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                --src)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__build)
+            opts=" -k -r -s -h -V  --keys --root --src --help --version  <PLAN_CONTEXT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --keys)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                    -k)
+                    COMPREPLY=("<HAB_ORIGIN_KEYS>")
+                    return 0
+                    ;;
+                --root)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                    -r)
+                    COMPREPLY=("<HAB_STUDIO_ROOT>")
+                    return 0
+                    ;;
+                --src)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                    -s)
+                    COMPREPLY=("<SRC_PATH>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__cfg)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__conf)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__config)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__env)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__exe)
+            opts=" -h -V  --help --version  <PKG_IDENT> <CMD> <ARGS>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__exec)
+            opts=" -h -V  --help --version  <PKG_IDENT> <CMD> <ARGS>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__exp)
+            opts=" -h -V  --help --version  <FORMAT> <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__export)
+            opts=" -h -V  --help --version  <FORMAT> <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__ha)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__has)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__hash)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__hea)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__head)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__heade)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__header)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__i)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__in)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__ins)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__inst)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__insta)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__instal)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__install)
+            opts=" -u -b -i -h -V  --url --binlink --ignore-target --help --version  <PKG_IDENT_OR_ARTIFACT>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__p)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__pa)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__pat)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__path)
+            opts=" -h -V  --help --version  <PKG_IDENT> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__provides)
+            opts=" -r -p -h -V  --help --version  <FILE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__s)
+            opts=" -h -V  --origin --help --version  <SOURCE> <DEST> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__search)
+            opts=" -u -h -V  --url --help --version  <SEARCH_TERM> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__si)
+            opts=" -h -V  --origin --help --version  <SOURCE> <DEST> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__sig)
+            opts=" -h -V  --origin --help --version  <SOURCE> <DEST> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__sign)
+            opts=" -h -V  --origin --help --version  <SOURCE> <DEST> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__u)
+            opts=" -u -z -h -V  --url --auth --help --version  <HART_FILE>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__up)
+            opts=" -u -z -h -V  --url --auth --help --version  <HART_FILE>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__upl)
+            opts=" -u -z -h -V  --url --auth --help --version  <HART_FILE>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__uplo)
+            opts=" -u -z -h -V  --url --auth --help --version  <HART_FILE>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__uploa)
+            opts=" -u -z -h -V  --url --auth --help --version  <HART_FILE>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__upload)
+            opts=" -u -z -h -V  --url --auth --help --version  <HART_FILE>... "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --url)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                    -u)
+                    COMPREPLY=("<DEPOT_URL>")
+                    return 0
+                    ;;
+                --auth)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                    -z)
+                    COMPREPLY=("<AUTH_TOKEN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__v)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__ve)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__ver)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__veri)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__verif)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pkg__verify)
+            opts=" -h -V  --help --version  <SOURCE> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pl)
+            opts=" -h -V  --help --version   init help  i in ini"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__pla)
+            opts=" -h -V  --help --version   init help  i in ini"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__plan)
+            opts=" -h -V  --help --version   init help  i in ini"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__plan__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__plan__i)
+            opts=" -o -f -h -V  --origin --nocallbacks --help --version  <PKG_NAME> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                    -o)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__plan__in)
+            opts=" -o -f -h -V  --origin --nocallbacks --help --version  <PKG_NAME> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                    -o)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__plan__ini)
+            opts=" -o -f -h -V  --origin --nocallbacks --help --version  <PKG_NAME> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                    -o)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__plan__init)
+            opts=" -o -f -h -V  --origin --nocallbacks --help --version  <PKG_NAME> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                --origin)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                    -o)
+                    COMPREPLY=("<ORIGIN>")
+                    return 0
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__r)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ri)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__rin)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__k)
+            opts=" -h -V  --help --version   export import generate help  e ex exp expo expor  i im imp impo impor  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__ke)
+            opts=" -h -V  --help --version   export import generate help  e ex exp expo expor  i im imp impo impor  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key)
+            opts=" -h -V  --help --version   export import generate help  e ex exp expo expor  i im imp impo impor  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__e)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__ex)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__exp)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__expo)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__expor)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__export)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__g)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__ge)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__gen)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__gene)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__gener)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__genera)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__generat)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__generate)
+            opts=" -h -V  --help --version  <RING> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__i)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__im)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__imp)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__impo)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__impor)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ring__key__import)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__se)
+            opts=" -h -V  --help --version   key load unload start stop help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__ser)
+            opts=" -h -V  --help --version   key load unload start stop help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__serv)
+            opts=" -h -V  --help --version   key load unload start stop help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__servi)
+            opts=" -h -V  --help --version   key load unload start stop help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__servic)
+            opts=" -h -V  --help --version   key load unload start stop help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service)
+            opts=" -h -V  --help --version   key load unload start stop help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__k)
+            opts=" -h -V  --help --version   generate help  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__ke)
+            opts=" -h -V  --help --version   generate help  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key)
+            opts=" -h -V  --help --version   generate help  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__g)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__ge)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__gen)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__gene)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__gener)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__genera)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__generat)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__generate)
+            opts=" -h -V  --help --version  <SERVICE_GROUP> <ORG> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__key__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__load)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__start)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__stop)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__service__unload)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__set)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__setu)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__setup)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__st)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__sta)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__star)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__start)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__stu)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__stud)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__studi)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__studio)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__su)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__sup)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__u)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__us)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__use)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user)
+            opts=" -h -V  --help --version   key help  k ke"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__k)
+            opts=" -h -V  --help --version   generate help  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__ke)
+            opts=" -h -V  --help --version   generate help  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key)
+            opts=" -h -V  --help --version   generate help  g ge gen gene gener genera generat"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__g)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__ge)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__gen)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__gene)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__gener)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__genera)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__generat)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__generate)
+            opts=" -h -V  --help --version  <USER> "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        hab__user__key__help)
+            opts=" -h -V  --help --version  "
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 4 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+                return 0
+            fi
+            case "${prev}" in
+                
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+    esac
+}
+
+complete -F _hab -o bashdefault -o default hab
