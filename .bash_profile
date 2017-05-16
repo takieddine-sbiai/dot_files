@@ -48,4 +48,4 @@ fi
 
 # the fuck
 # https://github.com/nvbn/thefuck
-which -s thefuck && eval $(thefuck --alias)
+which -s thefuck && eval "alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1)) && eval $TF_CMD; history -s $TF_CMD'"
