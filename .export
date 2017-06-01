@@ -30,4 +30,4 @@ export GIT_PROMPT_THEME=Minimal-custom
 export GOPATH=~/go
 
 # Path should be the last exported variable
-export PATH="~/bin:${GOPATH}/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
+export PATH="~/bin:${GOPATH}/bin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
