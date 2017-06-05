@@ -6,8 +6,9 @@ import {CompositeDisposable} from 'atom'
 import etch from 'etch'
 import EtchComponent from './../etch-component'
 import Octicon from 'etch-octicon'
+import { openFile } from './../utils'
 
-const defaultContent = 'To find usage, select an identifier and run a the `golang:find-usages` command via the command palette.'
+const defaultContent = 'To find usage, select an identifier and run the `golang:find-usages` command via the command palette.'
 
 export default class UsageView extends EtchComponent {
   constructor (props) {
@@ -39,7 +40,7 @@ export default class UsageView extends EtchComponent {
 
   structuredContent (style, packs) {
     return (
-      <span ref='content' style={style} tabIndex='-1'>
+      <div ref='content' style={style} tabIndex='-1'>
         {packs.map(([pkg, refs]) => {
           return (
             <details className='go-plus-accordion-item' open>
@@ -58,7 +59,7 @@ export default class UsageView extends EtchComponent {
             </details>
           )
         })}
-      </span>
+      </div>
     )
   }
 
@@ -74,8 +75,8 @@ export default class UsageView extends EtchComponent {
   }
 
   handleClick (ref) {
-    atom.workspace.open(ref.filename).then((editor) => {
-      editor.setCursorBufferPosition([ref.row - 1, ref.column - 1])
+    openFile(ref.filename, {row: ref.row - 1, column: ref.column - 1}).catch((err) => {
+      console.log('could not access ' + ref.filename, err)
     })
   }
 

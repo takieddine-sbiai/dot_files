@@ -1,12 +1,11 @@
 'use babel'
 
 import { getBreakpoint, getBreakpoints, getBreakpointByName } from './store-utils'
-import { position } from './breakpoint-utils'
+import { location } from './utils'
 
 export default class Debugger {
-  constructor (store, connection, addOutputMessage) {
+  constructor (store, connection) {
     this._connection = connection
-    this._addOutputMessage = addOutputMessage
     this._store = store
     this._stopPromise = null
   }
@@ -27,7 +26,7 @@ export default class Debugger {
     }
 
     if (!config) {
-      this._addOutputMessage('debug', `Please select a configuration in the debugger panel on the right.\n`)
+      this._addOutputMessage(`Please select a configuration in the debugger panel on the right.\n`)
       return Promise.resolve()
     }
 
@@ -35,16 +34,16 @@ export default class Debugger {
 
     // clear the output panel
     if (atom.config.get('go-debug.clearOutputOnStart') === true) {
-      this._addOutputMessage('clear')
+      this._store.dispatch({ type: 'CLEAR_OUTPUT_MESSAGES' })
     }
 
     // start the debugger
-    this._addOutputMessage('debug', `Starting delve with config "${config.name}"\n`)
+    this._addOutputMessage(`Starting delve with config "${config.name}"\n`)
 
     return this._connection.start({ config, file })
       .then((session) => {
-        this._addOutputMessage('debug', `Started delve with config "${config.name}"\n`)
-        this._store.dispatch({ type: 'SET_STATE', state: 'started' })
+        this._addOutputMessage(`Started delve with config "${config.name}"\n`)
+        this._store.dispatch({ type: 'SET_STATE', state: 'waiting' })
 
         this._session = session
 
@@ -58,7 +57,7 @@ export default class Debugger {
         })
       })
       .catch((err) => {
-        this._addOutputMessage('debug', `Failed to start delve with config "${config.name}"\r\n  Error: ${err}\n`)
+        this._addOutputMessage(`Failed to start delve with config "${config.name}"\r\n  Error: ${err}\n`)
         return this.stop()
       })
   }
@@ -80,8 +79,9 @@ export default class Debugger {
       const requiresHalt = this.isBusy()
       this._stopPromise = this._session.stop(requiresHalt)
         .then(() => {
-          this._store.dispatch({ type: 'STOP' })
           this._stopPromise = null
+          this._session = null
+          this._store.dispatch({ type: 'STOP' })
         })
     }
     return this._stopPromise
@@ -112,16 +112,16 @@ export default class Debugger {
     }
     bp = getBreakpoint(this._store, file, line)
 
-    const fileAndLine = position(bp)
-    this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine}\n`)
+    const fileAndLine = location(bp)
+    this._addOutputMessage(`Adding breakpoint @ ${fileAndLine}\n`)
 
     return this._addBreakpoint(bp)
       .then(({ id }) => {
-        this._addOutputMessage('debug', `Added breakpoint @ ${fileAndLine}\n`)
+        this._addOutputMessage(`Added breakpoint @ ${fileAndLine}\n`)
         this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, id, state: 'valid' } })
       })
       .catch((err) => {
-        this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
+        this._addOutputMessage(`Adding breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
         this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, state: 'error', message: err } })
       })
   }
@@ -148,16 +148,16 @@ export default class Debugger {
       return Promise.resolve().then(done)
     }
 
-    const fileAndLine = position(bp)
-    this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine}\n`)
+    const fileAndLine = location(bp)
+    this._addOutputMessage(`Removing breakpoint @ ${fileAndLine}\n`)
 
     this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name, state: 'busy' } })
 
     return this._removeBreakpoint(bp)
-      .then(() => this._addOutputMessage('debug', `Removed breakpoint @ ${fileAndLine}\n`))
+      .then(() => this._addOutputMessage(`Removed breakpoint @ ${fileAndLine}\n`))
       .then(done)
       .catch((err) => {
-        this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
+        this._addOutputMessage(`Removing breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
         this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name, state: 'error', message: err } })
       })
   }
@@ -206,8 +206,8 @@ export default class Debugger {
         done(Object.assign({}, newBP, { state: 'valid' }))
       })
       .catch((err) => {
-        const fileAndLine = position(bp)
-        this._addOutputMessage('debug', `Updating breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
+        const fileAndLine = location(bp)
+        this._addOutputMessage(`Updating breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
         this._store.dispatch({ type: 'EDIT_BREAKPOINT', bp: { name: bp.name, state: 'error', message: err } })
       })
   }
@@ -218,6 +218,14 @@ export default class Debugger {
    */
   resume () {
     return this.continueExecution('resume')
+  }
+
+  /**
+   * Halts the current debugger.
+   * @return {Promise}
+   */
+  halt () {
+    return this.continueExecution('halt')
   }
 
   /**
@@ -256,16 +264,18 @@ export default class Debugger {
       this._store.dispatch({ type: 'UPDATE_GOROUTINES', goroutines: [] })
     }, 250)
 
-    return this._busy(
-      () => this._session[fn]()
+    return this._updateState(
+      () => this._session[fn](),
+      'running'
     ).then((newState) => {
       clearTimeout(id)
       if (newState.exited) {
         return this.stop()
       }
       return this.getGoroutines() // get the new goroutines
-        .then(() => this.selectGoroutine(newState.goroutineID)) // select the current goroutine
-        .then(() => this.selectStacktrace(0)) // reselect the first stacktrace entry
+        .then(() => this._selectGoroutine(newState.goroutineID)) // select the current goroutine
+        .then(() => this._selectStacktrace(0)) // reselect the first stacktrace entry
+        .then(() => this._evaluateWatchExpressions())
     })
   }
 
@@ -290,12 +300,17 @@ export default class Debugger {
    * @return {Promise}
    */
   selectStacktrace (index) {
+    return this._selectStacktrace(index).then(() => {
+      return this._evaluateWatchExpressions()
+    })
+  }
+  _selectStacktrace (index) {
     if (this._store.getState().delve.selectedStacktrace === index) {
       // no need to change
       return Promise.resolve()
     }
 
-    return this._busy(
+    return this._updateState(
       () => this._session.selectStacktrace({ index })
     ).then(() => {
       this._store.dispatch({ type: 'SET_SELECTED_STACKTRACE', index })
@@ -308,6 +323,11 @@ export default class Debugger {
    * @return {Promise}
    */
   selectGoroutine (id) {
+    return this._selectGoroutine(id).then(() => {
+      return this._evaluateWatchExpressions()
+    })
+  }
+  _selectGoroutine (id) {
     if (!this.isStarted()) {
       return Promise.resolve()
     }
@@ -316,7 +336,7 @@ export default class Debugger {
       return this.getStacktrace(id)
     }
 
-    return this._busy(
+    return this._updateState(
       () => this._session.selectGoroutine({ id })
     ).then(() => {
       this._store.dispatch({ type: 'SET_SELECTED_GOROUTINE', id })
@@ -329,7 +349,7 @@ export default class Debugger {
       return Promise.resolve()
     }
 
-    return this._busy(
+    return this._updateState(
       () => this._session.getStacktrace({ goroutineID })
     ).then((stacktrace) => {
       this._store.dispatch({ type: 'UPDATE_STACKTRACE', stacktrace })
@@ -341,17 +361,67 @@ export default class Debugger {
       return Promise.resolve()
     }
 
-    return this._busy(
+    return this._updateState(
       () => this._session.getGoroutines()
     ).then((goroutines) => {
       this._store.dispatch({ type: 'UPDATE_GOROUTINES', goroutines })
     })
   }
 
-  _busy (fn) {
-    this._store.dispatch({ type: 'SET_STATE', state: 'busy' })
+  evaluate (expr) {
+    if (!this.isStarted()) {
+      return Promise.resolve()
+    }
+
+    const { delve } = this._store.getState()
+    const { selectedGoroutine: goroutineID, selectedStacktrace: frame } = delve
+    return this._updateState(
+      () => this._session.evaluate({ expr, scope: { goroutineID, frame } })
+    )
+  }
+
+  addWatchExpression (expr) {
+    const existingExpr = this._store.getState().delve.watchExpressions.find((o) => o.expr === expr)
+    if (existingExpr) {
+      return Promise.resolve()
+    }
+
+    this._store.dispatch({ type: 'ADD_WATCH_EXPRESSION', expr })
+
+    if (!this.isStarted()) {
+      return Promise.resolve()
+    }
+
+    return this._evaluateWatchExpression(expr)
+  }
+  removeWatchExpression (expr) {
+    this._store.dispatch({ type: 'REMOVE_WATCH_EXPRESSION', expr })
+    return Promise.resolve()
+  }
+  _evaluateWatchExpression (expr) {
+    return this._updateState(() => this.evaluate(expr))
+      .then((variables) => {
+        this._store.dispatch({ type: 'SET_WATCH_EXPRESSION_VARIABLES', expr, variables })
+      })
+  }
+  _evaluateWatchExpressions () {
+    const expressions = this._store.getState().delve.watchExpressions
+    return Promise.all(
+      expressions.map(({ expr }) => this._evaluateWatchExpression(expr))
+    )
+  }
+
+  _updateState (fn, before = 'busy', after = 'waiting') {
+    // only change the state if we are currently waiting.
+    // other states mean that something else is happening
+    const changeState = this.getState() === 'waiting'
+    if (changeState) {
+      this._store.dispatch({ type: 'SET_STATE', state: before })
+    }
     return fn().then((v) => {
-      this._store.dispatch({ type: 'SET_STATE', state: 'waiting' })
+      if (changeState) {
+        this._store.dispatch({ type: 'SET_STATE', state: after })
+      }
       return v
     })
   }
@@ -388,10 +458,18 @@ export default class Debugger {
   }
 
   isBusy () {
-    return this.getState() === 'busy'
+    const state = this.getState()
+    return state === 'busy' || state === 'running'
   }
 
   getState () {
     return this._store.getState().delve.state
+  }
+
+  _addOutputMessage (message) {
+    this._store.dispatch({
+      type: 'ADD_OUTPUT_MESSAGE',
+      message
+    })
   }
 }

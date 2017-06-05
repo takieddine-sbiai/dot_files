@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-1161022-142-rhlyux"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11755-90263-1hxvl7w.rcz25wxw29"
     ]
   ],
-  "_from": "../d-1161022-142-1kzzwm1/package.tgz",
-  "_id": "language-terraform@0.7.5",
+  "_from": "../d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
+  "_id": "language-terraform@0.8.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-terraform",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161022-142-1kzzwm1/package.tgz",
-  "_shasum": "4be5ee0ad52618f396bc246678a3b2693595121d",
+  "_resolved": "file:../d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
+  "_shasum": "657c6e3bf72b93ce8423026253981b0b4ad44da0",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-1161022-142-1kzzwm1/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-1161022-142-rhlyux",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90263-qez4od.oyxx7jh5mi/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11755-90263-1hxvl7w.rcz25wxw29",
   "bugs": {
     "url": "https://github.com/GiantToast/language-terraform/issues"
   },
@@ -56,5 +56,5 @@
     "type": "git",
     "url": "git+https://github.com/GiantToast/language-terraform.git"
   },
-  "version": "0.7.5"
+  "version": "0.8.1"
 }

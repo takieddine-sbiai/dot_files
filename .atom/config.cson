@@ -21,8 +21,7 @@
     currentPanelHeight: "16.9852648347272vh"
   hyperclick:
     darwinTriggerKeys: "altKey"
-  linter:
-    showErrorPanel: false
+  linter: {}
   "vim-mode":
     useSmartcaseForSearch: true
   welcome:

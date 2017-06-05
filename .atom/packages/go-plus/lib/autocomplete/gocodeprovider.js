@@ -61,7 +61,6 @@ class GocodeProvider {
     this.subscriptions = null
     this.goconfig = null
     this.subscribers = null
-    this.selector = null
     this.inclusionPriority = null
     this.excludeLowerPriority = null
     this.suppressForCharacters = null
@@ -157,7 +156,7 @@ class GocodeProvider {
       }
       const scopeDescriptor = options.editor.scopeDescriptorForBufferPosition(priorBufferPosition)
       const text = options.editor.getText()
-      if (index > 0 && this.characterIsSuppressed(text[index - 1], scopeDescriptor)) {
+      if (!options.activatedManually && index > 0 && this.characterIsSuppressed(text[index - 1], scopeDescriptor)) {
         return resolve()
       }
       const offset = Buffer.byteLength(text.substring(0, index), 'utf8')

@@ -1,56 +1,43 @@
 'use babel'
 
-import {CompositeDisposable} from 'atom'
 import path from 'path'
-
-function capitalizeFirstLetter (str) {
-  if (!str) {
-    return str
-  }
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
+import {isValidEditor} from './../utils'
 
 class GometalinterLinter {
-  constructor (goconfig) {
+  constructor (goconfig, linter) {
     this.goconfig = goconfig
-    this.subscriptions = new CompositeDisposable()
-
-    this.name = 'gometalinter'
-    this.grammarScopes = ['source.go']
-    this.scope = 'project'
-    this.lintOnFly = false
+    this.linter = linter
   }
 
   dispose () {
     this.disposed = true
-    if (this.subscriptions) {
-      this.subscriptions.dispose()
-    }
-    this.subscriptions = null
     this.goconfig = null
-    this.name = null
-    // Linter should check whether a linter is disposed, but it doesn't
-    // this.grammarScopes = null
-    this.lintOnFly = null
   }
 
-  ready () {
-    if (!this.goconfig) {
-      return false
+  deleteMessages () {
+    const linter = this.linter()
+    if (linter) {
+      linter.clearMessages()
     }
-
-    return true
   }
 
-  lint (editor) {
-    if (!this.ready() || !editor) {
-      return []
+  setMessages (messages) {
+    const linter = this.linter()
+    if (linter && messages && messages.length) {
+      linter.setAllMessages(messages)
+    }
+  }
+
+  lint (editor, path) {
+    if (!isValidEditor(editor)) {
+      return Promise.resolve(true)
     }
 
     const buffer = editor.getBuffer()
     if (!buffer) {
-      return []
+      return Promise.resolve(true)
     }
+    this.deleteMessages()
     let args = atom.config.get('go-plus.lint.args')
     if (!args || args.constructor !== Array) {
       args = [
@@ -72,7 +59,7 @@ class GometalinterLinter {
 
     return this.goconfig.locator.findTool('gometalinter').then((cmd) => {
       if (!cmd) {
-        return []
+        return true
       }
 
       const options = this.goconfig.executor.getOptions('file')
@@ -85,12 +72,16 @@ class GometalinterLinter {
           messages = this.mapMessages(r.stdout, editor, options.cwd)
         }
         if (!messages || messages.length < 1) {
-          return []
+          return true
         }
         return messages
+      }).then((messages) => {
+        this.setMessages(messages)
       }).catch((e) => {
+        // always catch here - lint failures should not prevent downstream
+        // orchestrator tasks from running
         console.log(e)
-        return []
+        return false
       })
     })
   }
@@ -143,13 +134,14 @@ class GometalinterLinter {
         range = [[message.line - 1, 0], [message.line - 1, 1000]]
       }
       results.push({
-        name: message.linter,
-        type: capitalizeFirstLetter(message.severity),
-        row: message.line,
-        column: message.col,
-        text: message.message + ' (' + message.linter + ')',
-        filePath: path.join(cwd, message.path),
-        range: range})
+        linterName: message.linter,
+        severity: message.severity.toLowerCase(),
+        location: {
+          file: path.join(cwd, message.path),
+          position: range
+        },
+        excerpt: message.message + ' (' + message.linter + ')'
+      })
     }
 
     return results

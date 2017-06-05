@@ -8,9 +8,7 @@ class Formatter {
   constructor (goconfig) {
     this.goconfig = goconfig
     this.subscriptions = new CompositeDisposable()
-    this.saveSubscriptions = new CompositeDisposable()
     this.updatingFormatterCache = false
-    this.setToolLocations()
     this.observeConfig()
     this.handleCommands()
     this.updateFormatterCache()
@@ -21,23 +19,10 @@ class Formatter {
       this.subscriptions.dispose()
     }
     this.subscriptions = null
-    if (this.saveSubscriptions) {
-      this.saveSubscriptions.dispose()
-    }
-    this.saveSubscriptions = null
     this.goconfig = null
     this.tool = null
     this.formatterCache = null
     this.updatingFormatterCache = null
-    this.toolLocations = null
-  }
-
-  setToolLocations () {
-    this.toolLocations = {
-      gofmt: false,
-      goimports: 'golang.org/x/tools/cmd/goimports',
-      goreturns: 'github.com/sqs/goreturns'
-    }
   }
 
   handleCommands () {
@@ -72,36 +57,14 @@ class Formatter {
       }
       this.updateFormatterCache()
     }))
-    this.subscriptions.add(atom.config.observe('go-plus.format.formatOnSave', (formatOnSave) => {
-      if (this.saveSubscriptions) {
-        this.saveSubscriptions.dispose()
-      }
-      this.saveSubscriptions = new CompositeDisposable()
-      if (formatOnSave) {
-        this.subscribeToSaveEvents()
-      }
-    }))
   }
 
-  subscribeToSaveEvents () {
-    this.saveSubscriptions.add(atom.workspace.observeTextEditors((editor) => {
-      if (!editor || !editor.getBuffer()) {
-        return
-      }
-
-      const bufferSubscriptions = new CompositeDisposable()
-      bufferSubscriptions.add(editor.getBuffer().onWillSave((filePath) => {
-        let p = editor.getPath()
-        if (filePath && filePath.path) {
-          p = filePath.path
-        }
-        this.format(editor, this.tool, p)
-      }))
-      bufferSubscriptions.add(editor.getBuffer().onDidDestroy(() => {
-        bufferSubscriptions.dispose()
-      }))
-      this.saveSubscriptions.add(bufferSubscriptions)
-    }))
+  handleWillSaveEvent (editor) {
+    const format = atom.config.get('go-plus.format.formatOnSave')
+    if (format) {
+      this.format(editor, this.tool)
+    }
+    return true
   }
 
   ready () {

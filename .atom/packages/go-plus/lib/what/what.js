@@ -1,7 +1,7 @@
 'use babel'
 
 import {CompositeDisposable} from 'atom'
-import {utf8OffsetForBufferPosition, parseGoPosition} from './../utils'
+import {utf8OffsetForBufferPosition, isValidEditor, parseGoPosition} from './../utils'
 import {buildGuruArchive, computeArgs, adjustPositionForGuru} from './../guru-utils'
 
 class What {
@@ -32,12 +32,26 @@ class What {
   subscribeToCursorEvents () {
     this.cursorSubscriptions = new CompositeDisposable()
     this.cursorSubscriptions.add(atom.workspace.observeTextEditors((editor) => {
-      if (!editor || !editor.getBuffer()) {
+      if (!isValidEditor(editor) || !editor.getBuffer()) {
         return
       }
 
       const editorSubscriptions = new CompositeDisposable()
       editorSubscriptions.add(editor.onDidChangeCursorPosition(({cursor, newBufferPosition}) => {
+        if (!cursor || !cursor.selection) {
+          return
+        }
+
+        const selection = cursor.selection.getBufferRange()
+        if (!selection || !selection.start || !selection.end) {
+          return
+        }
+
+        if (selection.start.compare(selection.end) === -1) {
+          this.clearMarkers()
+          return // The user has selected a range of text, suppress highlighting
+        }
+
         this.run(editor, newBufferPosition, cursor, this.shouldDecorate)
       }))
       editorSubscriptions.add(editor.onDidDestroy(() => {
@@ -95,7 +109,6 @@ class What {
       return this.goconfig.executor.exec(cmd, args, options).then((r) => {
         if (r.exitcode !== 0) {
           this.running = false
-          console.log(r)
           return
         }
         let result

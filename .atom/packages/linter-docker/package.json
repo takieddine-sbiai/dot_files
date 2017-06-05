@@ -2,46 +2,46 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-38034-jhccbo"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11755-90276-enm9g9.74s7cik9"
     ]
   ],
-  "_from": "../d-116119-38034-1ks0vvt/package.tgz",
-  "_id": "linter-docker@0.1.4",
+  "_from": "../d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
+  "_id": "linter-docker@0.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-docker",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116119-38034-1ks0vvt/package.tgz",
-  "_shasum": "1d72f6ce16ea688566476819b63766f904891394",
+  "_resolved": "file:../d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
+  "_shasum": "6c98f4df736dbbb8e2321ec7933ddce043bbfe3a",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-38034-1ks0vvt/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-38034-jhccbo",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11755-90276-1n7mzf2.w1xvjqncdi/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11755-90276-enm9g9.74s7cik9",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-docker/issues"
   },
   "dependencies": {
-    "atom-linter": "^8.0.0",
-    "dockerlint": "~0.2.0"
+    "atom-linter": "^9.0.0",
+    "dockerlint": "~0.3.1"
   },
   "description": "Linter plugin for Dockerfile's, using dockerlint",
   "devDependencies": {},
@@ -66,5 +66,5 @@
     "type": "git",
     "url": "git+https://github.com/AtomLinter/linter-docker.git"
   },
-  "version": "0.1.4"
+  "version": "0.2.0"
 }

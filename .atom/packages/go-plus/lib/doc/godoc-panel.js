@@ -1,7 +1,5 @@
 'use babel'
 
-import {CompositeDisposable} from 'atom'
-
 export default class GodocPanel {
   constructor () {
     this.key = 'reference'
@@ -11,7 +9,6 @@ export default class GodocPanel {
       icon: 'book',
       order: 300
     }
-    this.subscriptions = new CompositeDisposable()
 
     this.keymap = 'alt-d'
     const bindings = atom.keymaps.findKeyBindings({command: 'golang:showdoc'})
@@ -21,15 +18,22 @@ export default class GodocPanel {
   }
 
   dispose () {
-    if (this.subscriptions) {
-      this.subscriptions.dispose()
-    }
-    this.subscriptions = null
     this.requestFocus = null
     this.view = null
   }
 
+  updateMessage (msg) {
+    this.msg = msg
+    if (this.requestFocus) {
+      this.requestFocus()
+    }
+    if (this.view) {
+      this.view.update()
+    }
+  }
+
   updateContent (doc) {
+    this.msg = null
     this.doc = doc
     if (!doc) {
       return

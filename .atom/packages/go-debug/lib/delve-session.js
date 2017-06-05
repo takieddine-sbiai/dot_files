@@ -13,7 +13,10 @@ export default class DelveSession {
   }
 
   stop (requiresHalt) {
-    if (!this._connection || this._stopPromise) {
+    if (!this._connection) {
+      return Promise.resolve()
+    }
+    if (this._stopPromise) {
       return this._stopPromise
     }
 
@@ -163,6 +166,16 @@ export default class DelveSession {
         func: userCurrentLoc.function.name.split('/').pop()
       }
     })
+  }
+
+  evaluate ({ expr, scope }) {
+    return this._call('Eval', { expr, scope })
+      .then((result) => {
+        return DelveVariables.create([result.Variable])
+      })
+      .catch((err) => {
+        return DelveVariables.createError(err, expr)
+      })
   }
 
   // call is the base method for all calls to delve

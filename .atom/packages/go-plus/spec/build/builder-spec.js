@@ -6,22 +6,76 @@ import {lifecycle} from './../spec-helpers'
 
 describe('builder', () => {
   let builder = null
+  let linter
 
   beforeEach(() => {
     lifecycle.setup()
+
+    // mock the Linter V1 Indie API
+    linter = {
+      deleteMessages: () => {},
+      setMessages: (messages) => {},
+      dispose: () => {}
+    }
 
     waitsForPromise(() => {
       return lifecycle.activatePackage()
     })
 
     waitsFor(() => {
-      builder = lifecycle.mainModule.getBuilder()
+      builder = lifecycle.mainModule.loadBuilder(linter)
       return builder
     })
   })
 
   afterEach(() => {
     lifecycle.teardown()
+  })
+
+  describe('build command', () => {
+    it('runs go build for code outside gopath', () => {
+      [{
+        gopath: 'C:\\Users\\jsmith\\go',
+        cwd: 'C:\\projects\\go\\test',
+        sep: '\\'
+      }, {
+        gopath: '/home/jsmith/go',
+        cwd: '/home/jsmith/go',
+        sep: '/'
+      }, {
+        gopath: '/home/jsmith/go',
+        cwd: '/home/jsmith/code/',
+        sep: '/'
+      }, {
+        gopath: '/Users/jsmith/go',
+        cwd: '/Users/jsmith/documents',
+        sep: '/'
+      }].forEach(({gopath, cwd, sep}) => {
+        expect(builder.buildCommand(gopath, cwd, sep)).toBe('build', cwd)
+      })
+    })
+
+    it('runs go install for code in gopath', () => {
+      [{
+        gopath: 'C:\\Users\\jsmith\\go',
+        cwd: 'C:\\Users\\jsmith\\go\\src\\github.com\\foo',
+        sep: '\\'
+      }, {
+        gopath: '/home/jsmith/go',
+        cwd: '/home/jsmith/go/src/bar',
+        sep: '/'
+      }, {
+        gopath: '/Users/jsmith/go',
+        cwd: '/Users/jsmith/go/src/github.com/foo/bar',
+        sep: '/'
+      }, {
+        gopath: '/Users/jsmith/go/',
+        cwd: '/Users/jsmith/go/src/github.com/foo/bar',
+        sep: '/'
+      }].forEach(({gopath, cwd, sep}) => {
+        expect(builder.buildCommand(gopath, cwd, sep)).toBe('install', cwd)
+      })
+    })
   })
 
   describe('getMessages', () => {
@@ -46,10 +100,10 @@ describe('builder', () => {
 
       let message = messages[0]
       expect(message.name).toEqual('build')
-      expect(message.text.indexOf('syntax error: unexpected semicolon or newline, expecting comma or }') === 0).toBeTruthy()
-      expect(message.filePath.indexOf('the-file.go') > 0).toBeTruthy() // file is in the path
-      expect(message.filePath.indexOf('sample-project') > 0).toBeTruthy() // cwd is in the path
-      expect(message.row).toEqual('12')
+      expect(message.excerpt.indexOf('syntax error: unexpected semicolon or newline, expecting comma or }') === 0).toBeTruthy()
+      expect(message.location.file.indexOf('the-file.go') > 0).toBeTruthy() // file is in the path
+      expect(message.location.file.indexOf('sample-project') > 0).toBeTruthy() // cwd is in the path
+      expect(message.location.position.start.row).toEqual(11)
     })
   })
 })

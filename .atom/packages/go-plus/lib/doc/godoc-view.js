@@ -14,10 +14,20 @@ export default class GodocView extends EtchComponent {
   }
 
   render () {
-    const doc = this.props.model.doc
+    const {msg, doc} = this.props.model
     const keymap = this.props.model.keymap
 
-    if (!doc) {
+    if (msg) {
+      return (
+        <div>
+          <span className='godoc-panel' tabindex='0'>
+            {msg}
+          </span>
+        </div>
+      )
+    }
+
+    if (!doc || !doc.decl) {
       return (
         <div>
           <span className='godoc-panel' tabindex='0'>
@@ -26,9 +36,16 @@ export default class GodocView extends EtchComponent {
         </div>
       )
     }
-    const decl = doc.gddo
-      ? <a href={doc.gddo}>{doc.decl}</a>
-      : <span>{doc.decl}</span>
+    let decl
+    if (doc.gddo) {
+      decl = (
+        <a href={doc.gddo}>{doc.decl}</a>
+      )
+    } else {
+      decl = (
+        <span>{doc.decl}</span>
+      )
+    }
 
     return (
       <div tabindex='0' className='godoc-panel'>

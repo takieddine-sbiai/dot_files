@@ -6,10 +6,16 @@ import { indexOfBreakpoint, indexOfBreakpointByName } from './store-utils'
 const assign = (...items) => Object.assign({}, ...items)
 
 function updateArrayItem (array, index, o) {
+  if (index === -1) {
+    return array
+  }
   return array.slice(0, index).concat(
     assign(array[index], o),
     array.slice(index + 1)
   )
+}
+function removeArrayItem (array, index) {
+  return index === -1 ? array : array.slice(0, index).concat(array.slice(index + 1))
 }
 
 function stacktrace (state = [], action) {
@@ -71,7 +77,7 @@ function breakpoints (state = [], action) {
       return state
 
     case 'REMOVE_BREAKPOINT':
-      return index === -1 ? state : state.slice(0, index).concat(state.slice(index + 1))
+      return removeArrayItem(state, index)
 
     case 'EDIT_BREAKPOINT':
       if (index !== -1) {
@@ -105,7 +111,7 @@ function state (state = 'notStarted', action) {
       return 'notStarted'
 
     case 'RESTART':
-      return 'started'
+      return 'waiting'
 
     case 'SET_STATE':
       return action.state
@@ -137,6 +143,44 @@ function selectedGoroutine (state = 0, action) {
   }
   return state
 }
+const defaultWatchExpressionVariables = (expr) => {
+  return {
+    [expr]: {
+      name: expr,
+      loaded: true,
+      hasChildren: false,
+      value: '<not available>',
+      parentPath: '',
+      type: 'string'
+    }
+  }
+}
+function watchExpressions (state = [], action) {
+  switch (action.type) {
+    case 'RESTART':
+    case 'STOP':
+      return state.map((o) => assign(o, { variables: defaultWatchExpressionVariables(o.expr) }))
+
+    case 'ADD_WATCH_EXPRESSION':
+      return state.concat({
+        expr: action.expr,
+        variables: defaultWatchExpressionVariables(action.expr)
+      })
+
+    case 'REMOVE_WATCH_EXPRESSION': {
+      const index = state.findIndex((o) => o.expr === action.expr)
+      return removeArrayItem(state, index)
+    }
+
+    case 'SET_WATCH_EXPRESSION_VARIABLES': {
+      const index = state.findIndex((o) => o.expr === action.expr)
+      return updateArrayItem(state, index, {
+        variables: action.variables
+      })
+    }
+  }
+  return state
+}
 
 const delve = combineReducers({
   stacktrace,
@@ -144,7 +188,26 @@ const delve = combineReducers({
   breakpoints,
   state,
   selectedStacktrace,
-  selectedGoroutine
+  selectedGoroutine,
+  watchExpressions
+})
+
+function content (state = [], action) {
+  switch (action.type) {
+    case 'CLEAR_OUTPUT_MESSAGES':
+      return []
+
+    case 'ADD_OUTPUT_MESSAGE':
+      return state.concat({ type: 'text', value: action.message })
+
+    case 'ADD_OUTPUT_EVAL':
+      return state.concat({ type: 'eval', value: action.variables })
+  }
+  return state
+}
+
+const output = combineReducers({
+  content
 })
 
 function selectedConfig (state = '', action) {
@@ -168,6 +231,7 @@ export default function (state) {
 
   const store = createStore(combineReducers({
     delve,
+    output,
     selectedConfig,
     configurations
   }), state)

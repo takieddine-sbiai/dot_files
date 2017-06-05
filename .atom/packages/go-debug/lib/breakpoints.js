@@ -1,6 +1,5 @@
 'use babel'
 /** @jsx etch.dom */
-/* eslint-disable react/no-unknown-property */
 
 import * as fs from 'fs'
 import etch from 'etch'
@@ -8,8 +7,7 @@ import EtchComponent from './etch-component'
 import EtchStoreComponent from './etch-store-component'
 
 import { getBreakpoints } from './store-utils'
-import { position } from './breakpoint-utils'
-import { elementPropInHierarcy } from './utils'
+import { location, elementPropInHierarcy } from './utils'
 
 export class Breakpoints extends EtchComponent {
   render () {
@@ -17,9 +15,11 @@ export class Breakpoints extends EtchComponent {
     const items = breakpoints.map((bp) => {
       const { name, file, line, state, message } = bp
       return <div key={name} dataset={{ name, file, line }} title={message || ''} onclick={this.handleBreakpointClick}>
-        <span className='icon-x' onclick={this.handleRemoveBreakpointClick} />
+        <button className='btn go-debug-btn-flat' onClick={this.handleRemoveBreakpointClick}>
+          <span className='go-debug-icon icon icon-x' />
+        </button>
         <span className={'go-debug-breakpoint go-debug-breakpoint-state-' + state} />
-        {position(bp)}
+        {location(bp)}
       </div>
     })
     if (items.length === 0) {
@@ -59,7 +59,7 @@ export class Breakpoints extends EtchComponent {
 
   fileExists (file) {
     return new Promise((resolve) => {
-      fs.exists(file, resolve)
+      fs.stat(file, (err) => resolve(!err))
     })
   }
 

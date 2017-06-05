@@ -1,14 +1,19 @@
 'use babel'
 /** @jsx etch.dom */
-/* eslint-disable react/no-unknown-property */
 
 import etch from 'etch'
 import EtchComponent from './etch-component'
 import EtchStoreComponent from './etch-store-component'
+import { editorStyle } from './utils'
 
 export class Variables extends EtchComponent {
   constructor (props, children) {
-    props.expanded = {}
+    if (!props.path) {
+      props.path = ''
+    }
+    if (!props.expanded) {
+      props.expanded = {}
+    }
     super(props, children)
   }
   render () {
@@ -16,8 +21,8 @@ export class Variables extends EtchComponent {
     if (Object.keys(variables).length === 0) {
       return <div className='go-debug-panel-variables-empty'>No variables</div>
     }
-    return <div className='go-debug-panel-variables native-key-bindings' onclick={this.handleToggleClick} tabIndex={-1}>
-      <Children variables={variables} path={''} expanded={this.props.expanded} />
+    return <div style={editorStyle()} className='go-debug-panel-variables native-key-bindings' onclick={this.handleToggleClick} tabIndex={-1}>
+      <Children variables={variables} path={this.props.path} expanded={this.props.expanded} />
     </div>
   }
   handleToggleClick (ev) {
@@ -74,7 +79,7 @@ class Variable extends EtchComponent {
     const { variables, path, expanded } = this.props
     const variable = variables[path]
     const isExpanded = variable.hasChildren && expanded[path]
-    let toggleClassName = 'go-debug-toggle icon icon-chevron-' + (isExpanded ? 'down' : 'right')
+    let toggleClassName = 'go-debug-icon icon icon-chevron-' + (isExpanded ? 'down' : 'right')
     if (!variable.hasChildren) {
       toggleClassName += ' go-debug-toggle-hidden'
     }
@@ -91,10 +96,10 @@ class Variable extends EtchComponent {
     return <li>
       <div>
         <span className={toggleClassName} dataset={{ path }} />
-        {name || ''}
-        {value || ''}
+        {name || null}
+        {value || null}
       </div>
-      {isExpanded ? <Children variables={variables} path={path} expanded={expanded} /> : ''}
+      {isExpanded ? <Children variables={variables} path={path} expanded={expanded} /> : null}
     </li>
   }
 }
@@ -131,7 +136,7 @@ function renderValue (value) {
   if (Array.isArray(value)) {
     return value.map((v, i) => <span key={i}>{renderValue(v)}</span>)
   }
-  if (typeof value === 'object' && 'value' in value) {
+  if (value && typeof value === 'object' && 'value' in value) {
     const v = renderValue(value.value)
     return value.className ? <span className={value.className}>{v}</span> : v
   }

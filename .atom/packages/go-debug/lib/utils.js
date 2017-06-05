@@ -35,6 +35,12 @@ export function eachElementInHierarchy (element, fn) {
 export function shortenPath (file) {
   return path.normalize(file).split(path.sep).slice(-2).join(path.sep)
 }
+export function location (file, line) {
+  if (typeof file === 'object') {
+    ({ file, line } = file)
+  }
+  return `${shortenPath(file)}:${line + 1}`
+}
 
 export function debounce (func, wait) {
   if (!wait) {
@@ -70,4 +76,16 @@ export function shallowEqual (oldProps = {}, newProps = {}) {
   }
 
   return newKeys.every((key) => newProps[key] === oldProps[key])
+}
+
+let style
+export function editorStyle () {
+  if (!style) {
+    style = {
+      'font-family': atom.config.get('editor.fontFamily'),
+      'font-size': atom.config.get('editor.fontSize') + 'px',
+      'line-height': atom.config.get('editor.lineHeight')
+    }
+  }
+  return style
 }

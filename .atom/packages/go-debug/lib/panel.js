@@ -1,6 +1,5 @@
 'use babel'
 /** @jsx etch.dom */
-/* eslint-disable react/no-unknown-property */
 
 import { CompositeDisposable } from 'atom'
 
@@ -13,6 +12,7 @@ import { BreakpointsContainer } from './breakpoints'
 import { StacktraceContainer } from './stacktrace'
 import { GoroutinesContainer } from './goroutines'
 import { VariablesContainer } from './variables'
+import { WatchExpressionsContainer } from './watch-expressions'
 
 import { elementPropInHierarcy } from './utils'
 
@@ -23,6 +23,7 @@ export class Panel extends EtchComponent {
       stacktrace: true,
       goroutines: true,
       variables: true,
+      watchExpressions: true,
       breakpoints: true
     }
 
@@ -33,15 +34,9 @@ export class Panel extends EtchComponent {
     const { width } = this.props
     return <div className='go-debug-panel' style={{ width: width ? width + 'px' : undefined }}>
       <div className='go-debug-panel-resizer' onmousedown={this.handleResizeStart} />
-      {this.renderHeader()}
-      {this.renderContent()}
-    </div>
-  }
-
-  renderHeader () {
-    return <div className='go-debug-panel-header'>
-      <h3 className='go-debug-panel-title'>Debugger</h3>
+      <div className='go-debug-panel-title panel-heading'>Debugger</div>
       {this.renderConfigsOrCommands()}
+      {this.renderContent()}
     </div>
   }
   renderConfigsOrCommands () {
@@ -74,28 +69,34 @@ export class Panel extends EtchComponent {
       )
     )
 
-    return <div>
-      <button type='button' className='btn go-debug-btn-flat' title='Start'
+    return <div className='go-debug-panel-configs'>
+      <button type='button' className='btn go-debug-btn-flat' title='Start this configuration'
         onclick={this.handleStartConfig} disabled={selectedConfig === ''}>
-        <span className='icon-triangle-right' />
+        <span className='icon-playback-play' />
       </button>
       <select onchange={this.handleSelectConfig}>{options}</select>
-      <button type='button' className='btn go-debug-btn-flat' dataset={{ file }}
-        title='Start' disabled={!file} onclick={this.handleEditConfig}>
+      <button type='button' className='btn go-debug-btn-flat' title='Change configuration'
+        onclick={this.handleEditConfig} disabled={!file} dataset={{ file }}>
         <span className='icon-gear' />
       </button>
     </div>
   }
   renderCommands () {
+    const { state } = this.props
     return <div className='go-debug-panel-commands'>
-      {this.props.commands.panelCommands.map(this.renderCommand, this)}
+      {state === 'running'
+        ? this.renderCommand('halt', 'playback-pause', 'Halt')
+        : this.renderCommand('resume', 'playback-play', 'Resume')}
+      {this.renderCommand('next', 'arrow-right', 'Next')}
+      {this.renderCommand('stepIn', 'arrow-down', 'Step in')}
+      {this.renderCommand('stepOut', 'arrow-up', 'Step out')}
+      {this.renderCommand('stop', 'primitive-square', 'Stop')}
     </div>
   }
-  renderCommand (cmd) {
-    return <button key={cmd.cmd} type='button' className='btn go-debug-btn-flat'
-      title={cmd.title} dataset={{ cmd: cmd.cmd }} onclick={this.handleCommandClick}>
-      {cmd.icon ? <span className={'icon-' + cmd.icon} /> : null}
-      {cmd.text || ''}
+  renderCommand (cmd, icon, title) {
+    return <button key={cmd} type='button' className='btn go-debug-btn-flat'
+      title={title} dataset={{ cmd }} onclick={this.handleCommandClick}>
+      <span className={'icon-' + icon} />
     </button>
   }
 
@@ -110,6 +111,9 @@ export class Panel extends EtchComponent {
       </Expandable>
       <Expandable expanded={expanded.variables} name='variables' title='Variables' onChange={this.handleExpandChange}>
         <VariablesContainer store={store} dbg={dbg} />
+      </Expandable>
+      <Expandable expanded={expanded.watchExpressions} name='watchExpressions' title='Watch expressions' onChange={this.handleExpandChange}>
+        <WatchExpressionsContainer store={store} dbg={dbg} />
       </Expandable>
       <Expandable expanded={expanded.breakpoints} name='breakpoints' title='Breakpoints' onChange={this.handleExpandChange}>
         <BreakpointsContainer store={store} dbg={dbg} />
@@ -167,7 +171,7 @@ export class Panel extends EtchComponent {
 
   handleCommandClick (ev) {
     const command = elementPropInHierarcy(ev.target, 'dataset.cmd')
-    this.props.commands.execute(command)
+    atom.commands.dispatch(ev.target, 'go-debug:' + command)
   }
 }
 Panel.bindFns = [
