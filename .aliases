@@ -5,11 +5,3 @@ alias ll='ls -AlG'
 alias tmux='tmux -u'
 alias vi='vim'
 alias grep='grep --color'
-
-# Linux only
-if [ "$(uname)" == "Linux" ]; then
-    alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-fi
-
-# jenkins-cli
-alias jenkins-cli='java -jar ~/bin/jenkins-cli.jar'

@@ -8,8 +8,8 @@
 !.bash-git-prompt/**
 !.bash_profile
 !.export
-!.gitignore
 !.gitconfig
+!.gitignore
 !.iterm2
 !.iterm2/*
 !.iterm2_shell_integration.bash
@@ -19,4 +19,5 @@
 !.tigrc
 !.tmux.conf
 !.vimrc
+!.zshrc
 !README.md
