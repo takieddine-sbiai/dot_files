@@ -21,6 +21,7 @@ export LC_CTYPE="C"
 
 # Man
 export LESS_TERMCAP_md="$(tput bold; tput setaf 4)"
+export LESS="-F -X -r $LESS"
 
 # Editor
 export EDITOR="vim"
