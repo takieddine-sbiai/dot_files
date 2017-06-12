@@ -2,7 +2,9 @@ bind generic S :source ~/.tigrc
 bind status  + !git commit --amend
 bind main    C !git checkout %(commit)
 
-set reference-format = (branch) <tag>
 set tab-size = 4
+set line-graphics = ascii
 
+set reference-format = (branch) <tag>
 set main-view = date:default author:email-user id commit-title:graph=v2,refs=true
+set refs-view = date:default author:email-user ref commit-title
