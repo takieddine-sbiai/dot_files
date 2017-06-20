@@ -29,5 +29,8 @@ export EDITOR="vim"
 # GO
 export GOPATH=~/go
 
+# Extra bins
+export EXTRA_BIN=~/bin
+
 # Path should be the last exported variable
-export PATH="~/bin:${GOPATH}/bin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH=${EXTRA_BIN}:${GOPATH}/bin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}
