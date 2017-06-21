@@ -12,6 +12,7 @@
     telemetryConsent: "no"
   editor:
     autoIndentOnPaste: false
+    fontSize: 12
     showIndentGuide: true
     showInvisibles: true
     zoomFontWhenCtrlScrolling: true
