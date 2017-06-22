@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11756-29177-167wsd8.7ry7m0a4i"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117522-158-1hrsujr.ldmre5qaor"
     ]
   ],
-  "_from": "../d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
-  "_id": "go-debug@1.4.2",
+  "_from": "../d-117522-158-172rged.neiyqtzkt9/package.tgz",
+  "_id": "go-debug@1.4.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/go-debug",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
-  "_shasum": "3058646d93fcf86d9b7d5c6923d9f96e0ca8a2eb",
+  "_resolved": "file:../d-117522-158-172rged.neiyqtzkt9/package.tgz",
+  "_shasum": "09d25bf011d4179ce79835243a9ccb0bf82bde2d",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-11756-29177-1dwlf1m.2jkp22o6r/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-11756-29177-167wsd8.7ry7m0a4i",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117522-158-1hrsujr.ldmre5qaor",
   "activationHooks": [
     "language-go:grammar-used"
   ],
@@ -152,7 +152,7 @@
       "waitsForPromise"
     ]
   },
-  "version": "1.4.2",
+  "version": "1.4.3",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -203,7 +203,7 @@
       },
       {
         "name": "balanced-match",
-        "version": "0.4.2",
+        "version": "1.0.0",
         "path": "node_modules/balanced-match/index.js"
       },
       {
@@ -218,7 +218,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/brace-expansion/index.js"
       },
       {
@@ -488,12 +488,27 @@
       },
       {
         "name": "randomatic",
-        "version": "1.1.6",
+        "version": "1.1.7",
         "path": "node_modules/randomatic/index.js"
       },
       {
+        "name": "is-number",
+        "version": "3.0.0",
+        "path": "node_modules/randomatic/node_modules/is-number/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/randomatic/node_modules/is-number/node_modules/kind-of/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "4.0.0",
+        "path": "node_modules/randomatic/node_modules/kind-of/index.js"
+      },
+      {
         "name": "readable-stream",
-        "version": "2.2.10",
+        "version": "2.3.1",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -503,7 +518,7 @@
       },
       {
         "name": "redux",
-        "version": "3.6.0",
+        "version": "3.7.0",
         "path": "node_modules/redux/lib/index.js"
       },
       {
@@ -518,7 +533,7 @@
       },
       {
         "name": "remove-trailing-separator",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/remove-trailing-separator/index.js"
       },
       {
@@ -533,7 +548,7 @@
       },
       {
         "name": "safe-buffer",
-        "version": "5.1.0",
+        "version": "5.1.1",
         "path": "node_modules/safe-buffer/index.js"
       },
       {
@@ -578,8 +593,13 @@
       },
       {
         "name": "string_decoder",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
+      },
+      {
+        "name": "safe-buffer",
+        "version": "5.0.1",
+        "path": "node_modules/string_decoder/node_modules/safe-buffer/index.js"
       },
       {
         "name": "strip-bom-buf",
@@ -1849,6 +1869,9 @@
         "node_modules/process-nextick-args/index.js",
         "node_modules/process-nextick-args/test.js",
         "node_modules/randomatic/index.js",
+        "node_modules/randomatic/node_modules/is-number/index.js",
+        "node_modules/randomatic/node_modules/is-number/node_modules/kind-of/index.js",
+        "node_modules/randomatic/node_modules/kind-of/index.js",
         "node_modules/readable-stream/duplex-browser.js",
         "node_modules/readable-stream/duplex.js",
         "node_modules/readable-stream/lib/_stream_duplex.js",
@@ -1857,6 +1880,7 @@
         "node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/readable-stream/lib/_stream_writable.js",
         "node_modules/readable-stream/lib/internal/streams/BufferList.js",
+        "node_modules/readable-stream/lib/internal/streams/destroy.js",
         "node_modules/readable-stream/lib/internal/streams/stream-browser.js",
         "node_modules/readable-stream/lib/internal/streams/stream.js",
         "node_modules/readable-stream/passthrough.js",
@@ -2963,6 +2987,9 @@
         "node_modules/semver/semver.js",
         "node_modules/set-immediate-shim/index.js",
         "node_modules/string_decoder/lib/string_decoder.js",
+        "node_modules/string_decoder/node_modules/safe-buffer/browser.js",
+        "node_modules/string_decoder/node_modules/safe-buffer/index.js",
+        "node_modules/string_decoder/node_modules/safe-buffer/test.js",
         "node_modules/strip-bom-buf/index.js",
         "node_modules/symbol-observable/es/index.js",
         "node_modules/symbol-observable/es/ponyfill.js",
@@ -3077,6 +3104,9 @@
         "node_modules/path-is-absolute/package.json",
         "node_modules/preserve/package.json",
         "node_modules/process-nextick-args/package.json",
+        "node_modules/randomatic/node_modules/is-number/node_modules/kind-of/package.json",
+        "node_modules/randomatic/node_modules/is-number/package.json",
+        "node_modules/randomatic/node_modules/kind-of/package.json",
         "node_modules/randomatic/package.json",
         "node_modules/readable-stream/package.json",
         "node_modules/readdirp/examples/package.json",
@@ -3099,6 +3129,7 @@
         "node_modules/sb-promisify/package.json",
         "node_modules/semver/package.json",
         "node_modules/set-immediate-shim/package.json",
+        "node_modules/string_decoder/node_modules/safe-buffer/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/strip-bom-buf/package.json",
         "node_modules/symbol-observable/package.json",
@@ -3183,7 +3214,7 @@
           "node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.4.1",
+          "balanced-match": "^1.0.0",
           "concat-map": "0.0.1"
         }
       },
@@ -3452,8 +3483,32 @@
           "node_modules/randomatic"
         ],
         "dependencies": {
-          "is-number": "^2.0.2",
+          "is-number": "^3.0.0",
+          "kind-of": "^4.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/randomatic/node_modules/is-number"
+        ],
+        "dependencies": {
           "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/randomatic/node_modules/is-number/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/randomatic/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -3464,10 +3519,10 @@
         ],
         "dependencies": {
           "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
+          "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
-          "safe-buffer": "^5.0.1",
+          "safe-buffer": "~5.1.0",
           "string_decoder": "~1.0.0",
           "util-deprecate": "~1.0.1"
         }
@@ -3500,7 +3555,7 @@
           "lodash": "^4.2.1",
           "lodash-es": "^4.2.1",
           "loose-envify": "^1.1.0",
-          "symbol-observable": "^1.0.2"
+          "symbol-observable": "^1.0.3"
         }
       },
       {
@@ -3551,7 +3606,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "safe-buffer": "^5.0.1"
+          "safe-buffer": "~5.0.1"
         }
       },
       {
