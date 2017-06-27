@@ -9,7 +9,6 @@ export HYPHEN_INSENSITIVE="true"
 # history
 export HISTFILESIZE="100000"
 export HISTSIZE="100000"
-export PROMPT_COMMAND="history -a"
 export HISTCONTROL=ignoreboth:erasedups
 
 # GPG
