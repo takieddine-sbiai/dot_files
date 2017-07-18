@@ -20,9 +20,13 @@
     userId: "a29130a2-edc1-fc79-0155-dc0c60503342"
   "go-plus":
     currentPanelHeight: "16.9852648347272vh"
+    panel:
+      currentHeight: "9.8046875vh"
   hyperclick:
     darwinTriggerKeys: "altKey"
   linter: {}
+  "linter-ui-default":
+    panelHeight: 69
   "vim-mode":
     useSmartcaseForSearch: true
   welcome:
