@@ -15,6 +15,7 @@ set foldenable
 set foldlevelstart=0
 set foldnestmax=10
 set foldmethod=marker
+set encoding=utf-8
 " }}}
 
 " Tabs and spaces {{{
