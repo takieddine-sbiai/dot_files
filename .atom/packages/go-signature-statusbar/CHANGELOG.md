@@ -1,3 +1,25 @@
+## 1.2.3
+
+Bug fixes:
+* Uncaught TypeError when closing a tab that displays a signature but is not active
+* Uncaught TypeError when the file in a tab gets removed
+
+## 1.2.2
+
+Bug fixes:
+* Do not render when function is commented out
+* Atom uses significant amount of CPU
+
+## 1.2.1
+
+Bug fixes:
+* Fix race condition in init
+
+## 1.2.0
+
+Improvements:
+* Depend on go-plus package
+
 ## 1.1.0
 
 Features:

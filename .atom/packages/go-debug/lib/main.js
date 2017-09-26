@@ -3,6 +3,7 @@
 import { CompositeDisposable } from 'atom'
 
 import { serialize } from './store-utils'
+import { saveAllEditors } from './utils'
 
 let isStarted, dependenciesInstalled
 let subscriptions, initialState, path
@@ -65,7 +66,7 @@ export default {
     }).catch((e) => {
       console.error('go-debug', 'Failed to get "dlv"', e)
       const message = (e && e.message) || e || 'An unknown error occured'
-      this.getStore().dispatch({ type: 'ADD_OUTPUT_MESSAGE', message: message + '\n' })
+      this.getStore().dispatch({ type: 'ADD_OUTPUT_CONTENT', content: { type: 'message', message: message + '\n' } })
     })
   },
   getOutputPanelManager () {
@@ -107,18 +108,30 @@ export default {
     const DelveConnection = require('./delve-connection')
     const connection = new DelveConnection(
       (args, options) => {
+        let promise = Promise.resolve()
         if (atom.config.get('go-debug.saveAllFiles')) {
           // save everything before actually starting delve
           try {
-            atom.workspace.saveAll()
+            promise = saveAllEditors()
           } catch (e) {
             store.dispatch({
-              type: 'ADD_OUTPUT_MESSAGE',
-              message: 'Failed to save all files. Error: ' + (e.message || e) + '\n'
+              type: 'ADD_OUTPUT_CONTENT',
+              content: {
+                type: 'message',
+                message: 'Failed to save all files. Error: ' + (e.message || e) + '\n'
+              }
             })
           }
         }
-        return spawn(path, args, options)
+
+        return promise.then(() => {
+          store.dispatch({
+            type: 'ADD_OUTPUT_CONTENT',
+            content: { type: 'dlvSpawnOptions', path, args, cwd: options.cwd, env: options.env }
+          })
+
+          return spawn(path, args, options)
+        })
       },
       (port, host) => {
         return new Promise((resolve, reject) => {
@@ -131,7 +144,12 @@ export default {
         })
       },
       (proc, conn, mode) => new DelveSession(proc, conn, mode),
-      (message) => store.dispatch({ type: 'ADD_OUTPUT_MESSAGE', message }),
+      (message) => {
+        store.dispatch({
+          type: 'ADD_OUTPUT_CONTENT',
+          content: { type: 'message', message }
+        })
+      },
       goconfig
     )
 

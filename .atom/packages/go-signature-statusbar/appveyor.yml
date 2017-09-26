@@ -10,8 +10,8 @@ skip_tags: true
 
 environment:
   GOPATH: c:\gopath
-  GOVERSION: 1.6
-  APM_TEST_PACKAGES: environment go-config go-get
+  GOVERSION: 1.8
+  APM_TEST_PACKAGES: environment go-plus
 
   matrix:
   - ATOM_CHANNEL: stable

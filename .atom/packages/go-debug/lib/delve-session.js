@@ -5,6 +5,17 @@ import * as DelveVariables from './delve-variables'
 const RPC_ENDPOINT = 'RPCServer.'
 const breakpointProps = ['id', 'name', 'file', 'line', 'cond']
 
+// note: mimic the "full" flag in the "Stacktrace" call
+const defaultVariableCfg = {
+  followPointers: true,
+  maxVariableRecurse: 1,
+  maxStringLen: 64,
+  maxArrayValues: 64,
+  maxStructFields: -1
+}
+
+const VariableShadowed = 2
+
 export default class DelveSession {
   constructor (process, connection, mode) {
     this._process = process
@@ -132,8 +143,7 @@ export default class DelveSession {
   getStacktrace ({ goroutineID }) {
     const args = {
       id: goroutineID,
-      depth: 20,
-      full: true
+      depth: 20
     }
     return this._call('Stacktrace', args)
       .then(this._prepareStacktrace.bind(this))
@@ -144,8 +154,7 @@ export default class DelveSession {
         id: stack.pc,
         file: stack.file,
         line: stack.line - 1, // delve = 1 indexed line / atom = 0 indexed line
-        func: stack.function.name.split('/').pop(),
-        variables: DelveVariables.create(stack.Locals.concat(stack.Arguments))
+        func: stack.function.name.split('/').pop()
       }
     })
   }
@@ -166,6 +175,33 @@ export default class DelveSession {
         func: userCurrentLoc.function.name.split('/').pop()
       }
     })
+  }
+
+  getVariables (scope, cfg = defaultVariableCfg) {
+    return Promise.all([
+      this._getLocalVariables(scope, cfg),
+      this._getFunctionArguments(scope, cfg)
+    ]).then(([locals, args]) => {
+      // note: workaround for github.com/derekparker/delve/issues/951
+      // check the args if they contain variables that also exist in
+      // the local variables. if so mark them as shadowed (flag & 2)
+      args.forEach((arg) => {
+        if (locals.find((local) => local.name === arg.name)) {
+          arg.flag |= 2
+        }
+      })
+      const vars = locals.concat(args)
+        // variable is shadowed by another one, skip it
+        .filter((v) => ((v.flag & VariableShadowed) === 0)
+      )
+      return DelveVariables.create(vars)
+    })
+  }
+  _getLocalVariables (scope, cfg) {
+    return this._call('ListLocalVars', { scope, cfg }).then((o) => o.Variables)
+  }
+  _getFunctionArguments (scope, cfg) {
+    return this._call('ListFunctionArgs', { scope, cfg }).then((o) => o.Args)
   }
 
   evaluate ({ expr, scope }) {

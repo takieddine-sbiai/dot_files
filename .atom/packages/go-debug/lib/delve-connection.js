@@ -61,8 +61,12 @@ export default class DelveConnection {
         })
       }
 
-      const start = ({ dlvArgs, cwd, env }) => {
-        proc = this._spawn(dlvArgs, { cwd, env })
+      const spawn = ({ dlvArgs, cwd, env }) => {
+        return this._spawn(dlvArgs, { cwd, env })
+      }
+
+      const io = (dlvProc) => {
+        proc = dlvProc
 
         proc.stderr.on('data', (chunk) => {
           this._addOutputMessage('Delve output: ' + chunk.toString())
@@ -100,7 +104,7 @@ export default class DelveConnection {
         return
       }
 
-      prepare().then(start)
+      prepare().then(spawn).then(io)
     })
   }
 
@@ -125,14 +129,22 @@ function replaceVariable (value, variables) {
 }
 
 function getVariables (file) {
+  const workspaceFile = file && atom.project.relativizePath(file)
   return {
-    cwd: process.cwd(),                                  // the working directory on startup of atom
-    file,                                                // the open file (full path)
-    fileBasename: file && path.basename(file),           // the open file's basename
-    fileDirname: file && path.dirname(file),             // the open file's dirname
-    fileExtname: file && path.extname(file),             // the open file's extension
-    relativeFile: file && atom.project.relativize(file), // the open file relative to the "workspaceRoot" variable
-    workspaceRoot: atom.project.getPaths()[0]            // the full path of the project root folder
+    // the working directory on startup of atom
+    cwd: process.cwd(),
+    // the open file (full path)
+    file,
+    // the open file's basename
+    fileBasename: file && path.basename(file),
+    // the open file's dirname
+    fileDirname: file && path.dirname(file),
+    // the open file's extension
+    fileExtname: file && path.extname(file),
+    // the open file relative to the "workspaceRoot" variable
+    relativeFile: workspaceFile && workspaceFile[1],
+    // the full path of the project root folder
+    workspaceRoot: workspaceFile && workspaceFile[0]
   }
 }
 

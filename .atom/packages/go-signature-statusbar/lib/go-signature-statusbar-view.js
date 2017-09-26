@@ -1,7 +1,7 @@
 'use babel'
 
-import {CompositeDisposable} from 'atom'
 import path from 'path'
+import debounce from 'lodash.debounce'
 
 class GoSignatureStatusbarView {
   constructor (goconfig) {
@@ -14,16 +14,17 @@ class GoSignatureStatusbarView {
     if (!this.formatString) {
       this.formatString = '%F%A %R'
     }
+    this.debouncedDisplaySignature = debounce(this.displaySignature, 300)
   }
 
   activate () {
     this.textContent('')
     let editor = this.getActiveTextEditor()
     if (editor) {
-      if (editor.getGrammar().name != 'Go') {
+      if (editor.getGrammar().name !== 'Go') {
         return
       }
-      this.displaySignature(editor.getLastCursor())
+      this.debouncedDisplaySignature(editor.getLastCursor())
     }
 
     this.subscribeToActiveTextEditor()
@@ -38,18 +39,27 @@ class GoSignatureStatusbarView {
     if (this.cursorSubscription) {
       this.cursorSubscription.dispose()
     }
+    if (this.debouncedDisplaySignature) {
+      this.debouncedDisplaySignature.cancel()
+    }
     this.element.remove()
   }
 
   displaySignature (cursor) {
     let editor = this.getActiveTextEditor()
-    if (cursor != editor.getLastCursor()) {
+    if (!editor) {
+      return
+    }
+    if (cursor !== editor.getLastCursor()) {
       return
     }
     let line = cursor.getCurrentBufferLine()
+    if (!line) {
+      return
+    }
     let func = this.extractFunc(line, cursor.getBufferPosition().column)
 
-    if (func == '') {
+    if (func === '') {
       this.textContent('')
       return
     }
@@ -87,13 +97,13 @@ class GoSignatureStatusbarView {
       let cwd = path.dirname(buffer.getPath())
       let env = this.goconfig.environment(locatorOptions)
       this.goconfig.executor.exec(cmd, args, {cwd: cwd, env: env, input: text}).then((r) => {
-        if (r.stderr && r.stderr.trim() != '') {
+        if (r.stderr && r.stderr.trim() !== '') {
           console.log('autocomplete-go: (stderr) ' + r.stderr)
         }
 
-        if (r.stdout && r.stdout.trim() != '') {
+        if (r.stdout && r.stdout.trim() !== '') {
           let j = JSON.parse(r.stdout)
-          if (j.length) {
+          if (j.length && j[1][0].class === 'func') {
             let tokens = j[1][0].type.substring(4).split(') ')
             let args = tokens[1] ? tokens[0] + ')' : tokens[0]
             let ret = tokens[1] ? tokens[1] : ''
@@ -115,16 +125,16 @@ class GoSignatureStatusbarView {
   extractFunc (line, cursorPos) {
     let funcs = []
 
-    let matches = line.match(/([\w\.]+\()/g)
+    let matches = line.match(/([\w\\.]+\()/g)
 
-    if (matches == null || matches.length == 0) {
+    if (matches === null || matches.length === 0) {
       return ''
     }
 
     for (let func of matches.reverse()) {
-      if (line.indexOf('func ' + func) == -1) {
+      if (line.indexOf('func ' + func) === -1) {
         let start = line.indexOf(func)
-        if (func[0] == '.') {
+        if (func[0] === '.') {
           start += 1
         }
 
@@ -132,7 +142,7 @@ class GoSignatureStatusbarView {
       }
     }
 
-    if (funcs.length == 0) {
+    if (funcs.length === 0) {
       return ''
     }
 
@@ -147,11 +157,11 @@ class GoSignatureStatusbarView {
 
       let wrappedFuncs = 0
       for (let i = startSearchAt; i < line.length; i++) {
-        if (line[i] == '(') {
+        if (line[i] === '(') {
           wrappedFuncs += 1
         }
-        if (line[i] == ')') {
-          if (wrappedFuncs == 0) {
+        if (line[i] === ')') {
+          if (wrappedFuncs === 0) {
             funcs[index].end = i + 1
             break
           } else {
@@ -167,8 +177,8 @@ class GoSignatureStatusbarView {
           return f.name
         }
       } else {
-        let bracket_start = f.start + f.name.length
-        if (cursorPos >= f.start && cursorPos <= bracket_start) {
+        let bracketStart = f.start + f.name.length
+        if (cursorPos >= f.start && cursorPos <= bracketStart) {
           return f.name
         }
       }
@@ -192,7 +202,7 @@ class GoSignatureStatusbarView {
     let editor = this.getActiveTextEditor()
     if (editor) {
       this.cursorSubscription = editor.onDidChangeCursorPosition(({cursor}) => {
-        this.displaySignature(cursor)
+        this.debouncedDisplaySignature(cursor)
       })
     }
   }

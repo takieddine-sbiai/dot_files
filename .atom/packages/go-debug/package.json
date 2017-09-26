@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117522-158-1hrsujr.ldmre5qaor"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38623-1wvw2x8.tc05zpk3xr"
     ]
   ],
-  "_from": "../d-117522-158-172rged.neiyqtzkt9/package.tgz",
-  "_id": "go-debug@1.4.3",
+  "_from": "../d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
+  "_id": "go-debug@1.5.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/go-debug",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117522-158-172rged.neiyqtzkt9/package.tgz",
-  "_shasum": "09d25bf011d4179ce79835243a9ccb0bf82bde2d",
+  "_resolved": "file:../d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
+  "_shasum": "2dea92f6dd293755e6a2d939e10f30470670c804",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-158-172rged.neiyqtzkt9/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117522-158-1hrsujr.ldmre5qaor",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38623-1oetcaf.pofw2ymn29/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38623-1wvw2x8.tc05zpk3xr",
   "activationHooks": [
     "language-go:grammar-used"
   ],
@@ -100,18 +99,18 @@
     }
   },
   "dependencies": {
-    "ansi-to-html": "^0.6.2",
+    "ansi-to-html": "^0.6.3",
     "atom-package-deps": "^4.6.0",
     "chokidar": "^1.7.0",
-    "etch": "^0.12.4",
+    "etch": "^0.12.6",
     "json-rpc2": "^1.0.2",
-    "redux": "^3.6.0",
-    "semver": "^5.3.0",
+    "redux": "^3.7.2",
+    "semver": "^5.4.1",
     "untildify": "^3.0.2"
   },
   "description": "go debugger using delve for atom",
   "devDependencies": {
-    "standard": "^10.0.2"
+    "standard": "^10.0.3"
   },
   "engines": {
     "atom": ">=1.17.0 <2.0.0"
@@ -139,7 +138,7 @@
       }
     }
   },
-  "readme": "# [go-debug](https://atom.io/packages/go-debug)\n\nA go debugger for atom using [delve](https://github.com/derekparker/delve).\n\n![Demo](https://raw.githubusercontent.com/lloiser/go-debug/master/resources/demo.gif)\n\n## Install\n\nEither `apm install go-debug` or search for `go-debug` in the settings.\n\n### Install delve\n\n`go-debug` tries to install/download delve automatically.\n\nIf this fails you can still do it manually by using this guide: https://github.com/derekparker/delve/tree/master/Documentation/installation\n\n## Configuration\n\n`go-debug` has two built-in configurations. Both work on the file/package that is currently open in atom.\n\n* `Debug`: compile and debug the current package\n* `Test`: compile and debug the tests of the current package\n\nIt's possible to create additional configurations by creating a file and setting the path in the `go-debug` setting `Configuration File`. You can even specify multiple configurations by separating the paths in this setting with commas. Relative paths will be resolved relative to the current project.\n\nSuch a configuration file looks like:\n\n```js\n{\n  \"configurations\": [\n    { /* a configuration */ },\n    { /* another configuration */ },\n    // ...\n  ]\n}\n```\n\nEach configuration supports the following options:\n\n```js\n{\n  // \"name\" is the display name in the panel (REQUIRED)\n  \"name\": \"...\",\n\n  // \"mode\" determines how to start / connect to delve (REQUIRED)\n  // * debug is used to debug a package\n  // * test debugs the tests of the package\n  // * remote connects to an already running headless delve session on a remote server (see \"host\" and \"port\" below)\n  // * exec debugs a precompiled executable (see \"program\" below)\n  \"mode\": \"debug\" | \"test\" | \"remote\" | \"exec\",\n\n  // used to pass arguments to the executed package / tests (e.g. \"-v\").\n  \"args\": [\"...\"],\n\n  // use this if you have to specify additional environment variables.\n  \"env\": { \"<key>\": \"<value>\" },\n\n  // \"cwd\" specifies the current working directory where delve starts from.\n  // This is useful if you always want to debug/test a specific package (e.g. the \"main\" package) but are currently working on another package\n  \"cwd\": \"<dir>\",\n\n  // \"host\" and \"port\" are used to modify the default port of the locally running delve server.\n  // If \"mode\" is \"remote\" then these define the host and port of the server where a \"headless\" delve is running.\n  \"host\": \"localhost\",\n  \"port\": 2345,\n\n  // \"program\" contains the path to a precompiled executable that should be debugged.\n  // (useful if you have a custom build chain like gb)\n  \"program\": \"<path>\",\n\n  // pass additional build flags when delve compiles the package/tests.\n  \"buildFlags\": \"\",\n\n  // a path to the \"init\" file that will be executed once delve has started.\n  \"init\": \"<path>\",\n\n  // turns on/off (default) the \"verbose\" logging for delve (useful if you encounter problems with delve or go-debug).\n  \"showLog\": true | false\n}\n```\n\nAll string options can make use of the following variables by using `${...}` somewhere inside the string:\n\n```js\n{\n  // the working directory on startup of atom\n  cwd: \"...\",\n  // the open file (full path)\n  file: \"...\",\n  // the open file's basename\n  fileBasename: \"...\",\n  // the open file's dirname\n  fileDirname: \"...\",\n  // the open file's extension\n  fileExtname: \"...\",\n  // the open file relative to the \"workspaceRoot\" variable\n  relativeFile: \"...\",\n  // the full path of the project root folder\n  workspaceRoot: \"...\",\n  // this contains all environment variables known to atom including the \"env\" variables from above.\n  // They can be used like so \"${env.GOPATH}/src/...\"\n  env: { \"<key>\": \"<value>\" }\n}\n```\n\n_Note: `go-debug` also supports the configuration for vscode which are stored in `.vscode/launch.json`. But be aware that not all configurations might work!_\n\n### Examples\n\nAlways debug the `cmd` of your program wherever you are right now in your code and add some arguments and environment variables:\n```js\n{\n  \"name\": \"Debug cmd\",\n  \"mode\": \"debug\",\n  \"cwd\": \"${workspaceRoot}/cmd\",\n  \"args\": [\"--connection=sql\"],\n  \"env\": {\n    \"USER\": \"ROOT\",\n    \"PW\": \"SECRET!\"\n  }\n}\n```\n\nStart tests with verbose flag:\n```js\n{\n  \"name\": \"Verbose Test\",\n  \"mode\": \"test\",\n  \"args\": [\"-v\"]\n}\n```\n\n## Key bindings\n\n* `f5` starts the current selected configuration\n* `shift-f5` restarts the current delve session (`r / restart`)\n* `f6` stops delve (`exit / quit / q`)\n* `f8` continue the execution (`c / continue`)\n* `f9` toggle breakpoint\n* `f10` step over to next source line (`n / next`)\n* `f11` step into functions (`s / step`)\n* `shift-f11` step out of functions (`stepOut`)\n* `cmd-k cmd-g` (mac) / `ctrl-k ctrl-g` (others) toggles the main panel\n\n## Links\n\n* Gopher community on slack: [![Slack](https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat)](https://gophersinvite.herokuapp.com) <br />Questions? Use the `go-plus` channel or send me direct messages\n",
+  "readme": "# [go-debug](https://atom.io/packages/go-debug)\n\nA go debugger for atom using [delve](https://github.com/derekparker/delve).\n\n![Demo](https://raw.githubusercontent.com/lloiser/go-debug/master/resources/demo.gif)\n\n## Install\n\nEither `apm install go-debug` or search for `go-debug` in the settings.\n\n### Install delve\n\n`go-debug` tries to install/download delve automatically.\n\nIf this fails you can still do it manually by using this guide: https://github.com/derekparker/delve/tree/master/Documentation/installation\n\n## Configuration\n\n`go-debug` has two built-in configurations. Both work on the file/package that is currently open in atom.\n\n* `Debug`: compile and debug the current package\n* `Test`: compile and debug the tests of the current package\n\nIt's possible to create additional configurations by creating a file and setting the path in the `go-debug` setting `Configuration File`. You can even specify multiple configurations by separating the paths in this setting with commas. Relative paths will be resolved relative to the current project.\n\nSuch a configuration file looks like:\n\n```js\n{\n  \"configurations\": [\n    { /* a configuration */ },\n    { /* another configuration */ },\n    // ...\n  ]\n}\n```\n\nEach configuration supports the following options:\n\n```js\n{\n  // \"name\" is the display name in the panel (REQUIRED)\n  \"name\": \"...\",\n\n  // \"mode\" determines how to start / connect to delve (REQUIRED)\n  // * debug is used to debug a package\n  // * test debugs the tests of the package\n  // * remote connects to an already running headless delve session on a remote server (see \"host\" and \"port\" below)\n  // * exec debugs a precompiled executable (see \"program\" below)\n  \"mode\": \"debug\" | \"test\" | \"remote\" | \"exec\",\n\n  // used to pass arguments to the executed package / tests (e.g. \"-v\").\n  \"args\": [\"...\"],\n\n  // use this if you have to specify additional environment variables.\n  \"env\": { \"<key>\": \"<value>\" },\n\n  // \"cwd\" specifies the current working directory where delve starts from.\n  // This is useful if you always want to debug/test a specific package (e.g. the \"main\" package) but are currently working on another package\n  \"cwd\": \"<dir>\",\n\n  // \"host\" and \"port\" are used to modify the default port of the locally running delve server.\n  // If \"mode\" is \"remote\" then these define the host and port of the server where a \"headless\" delve is running.\n  \"host\": \"localhost\",\n  \"port\": 2345,\n\n  // \"program\" contains the path to a precompiled executable that should be debugged.\n  // (useful if you have a custom build chain like gb)\n  \"program\": \"<path>\",\n\n  // pass additional build flags when delve compiles the package/tests.\n  \"buildFlags\": \"\",\n\n  // a path to the \"init\" file that will be executed once delve has started.\n  \"init\": \"<path>\",\n\n  // turns on/off (default) the \"verbose\" logging for delve (useful if you encounter problems with delve or go-debug).\n  \"showLog\": true | false\n}\n```\n\nAll string options can make use of the following variables by using `${...}` somewhere inside the string:\n\n```js\n{\n  // the working directory on startup of atom\n  cwd: \"...\",\n  // the open file (full path)\n  file: \"...\",\n  // the open file's basename\n  fileBasename: \"...\",\n  // the open file's dirname\n  fileDirname: \"...\",\n  // the open file's extension\n  fileExtname: \"...\",\n  // the open file relative to the \"workspaceRoot\" variable\n  relativeFile: \"...\",\n  // the full path of the project root folder\n  workspaceRoot: \"...\",\n  // this contains all environment variables known to atom including the \"env\" variables from above.\n  // They can be used like so \"${env.GOPATH}/src/...\"\n  env: { \"<key>\": \"<value>\" }\n}\n```\n\n_Note: `go-debug` also supports the configuration for vscode which are stored in `.vscode/launch.json`. But be aware that not all configurations might work!_\n\n### Examples\n\nAlways debug the `cmd` of your program wherever you are right now in your code and add some arguments and environment variables:\n```js\n{\n  \"name\": \"Debug cmd\",\n  \"mode\": \"debug\",\n  \"cwd\": \"${workspaceRoot}/cmd\",\n  \"args\": [\"--connection=sql\"],\n  \"env\": {\n    \"USER\": \"ROOT\",\n    \"PW\": \"SECRET!\"\n  }\n}\n```\n\nStart tests with verbose flag:\n```js\n{\n  \"name\": \"Verbose Test\",\n  \"mode\": \"test\",\n  \"args\": [\"-test.v\"]\n}\n```\n\n## Key bindings\n\n* `f5` starts the current selected configuration\n* `shift-f5` restarts the current delve session (`r / restart`)\n* `f6` stops delve (`exit / quit / q`)\n* `f8` continue the execution (`c / continue`)\n* `f9` toggle breakpoint\n* `f10` step over to next source line (`n / next`)\n* `f11` step into functions (`s / step`)\n* `shift-f11` step out of functions (`stepOut`)\n* `cmd-k cmd-g` (mac) / `ctrl-k ctrl-g` (others) toggles the main panel\n\n## Links\n\n* Gopher community on slack: [![Slack](https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat)](https://gophersinvite.herokuapp.com) <br />Questions? Use the `go-plus` channel or send me direct messages\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -152,18 +151,18 @@
       "waitsForPromise"
     ]
   },
-  "version": "1.4.3",
+  "version": "1.5.2",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "ansi-to-html",
-        "version": "0.6.2",
+        "version": "0.6.3",
         "path": "node_modules/ansi-to-html/lib/ansi_to_html.js"
       },
       {
         "name": "anymatch",
-        "version": "1.3.0",
+        "version": "1.3.2",
         "path": "node_modules/anymatch/index.js"
       },
       {
@@ -173,18 +172,13 @@
       },
       {
         "name": "arr-flatten",
-        "version": "1.0.3",
+        "version": "1.1.0",
         "path": "node_modules/arr-flatten/index.js"
       },
       {
         "name": "array-unique",
         "version": "0.2.1",
         "path": "node_modules/array-unique/index.js"
-      },
-      {
-        "name": "arrify",
-        "version": "1.0.1",
-        "path": "node_modules/arrify/index.js"
       },
       {
         "name": "async-each",
@@ -213,7 +207,7 @@
       },
       {
         "name": "binary-extensions",
-        "version": "1.8.0",
+        "version": "1.10.0",
         "path": "node_modules/binary-extensions/binary-extensions.json"
       },
       {
@@ -263,7 +257,7 @@
       },
       {
         "name": "etch",
-        "version": "0.12.4",
+        "version": "0.12.6",
         "path": "node_modules/etch/lib/index.js"
       },
       {
@@ -325,6 +319,11 @@
         "name": "graceful-fs",
         "version": "4.1.11",
         "path": "node_modules/graceful-fs/graceful-fs.js"
+      },
+      {
+        "name": "http-parser-js",
+        "version": "0.4.8",
+        "path": "node_modules/http-parser-js/http-parser.js"
       },
       {
         "name": "inherits",
@@ -398,7 +397,7 @@
       },
       {
         "name": "js-tokens",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "path": "node_modules/js-tokens/index.js"
       },
       {
@@ -508,7 +507,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.3.1",
+        "version": "2.3.3",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -518,7 +517,7 @@
       },
       {
         "name": "redux",
-        "version": "3.7.0",
+        "version": "3.7.2",
         "path": "node_modules/redux/lib/index.js"
       },
       {
@@ -528,12 +527,12 @@
       },
       {
         "name": "regex-cache",
-        "version": "0.4.3",
+        "version": "0.4.4",
         "path": "node_modules/regex-cache/index.js"
       },
       {
         "name": "remove-trailing-separator",
-        "version": "1.0.2",
+        "version": "1.1.0",
         "path": "node_modules/remove-trailing-separator/index.js"
       },
       {
@@ -583,7 +582,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {
@@ -593,13 +592,8 @@
       },
       {
         "name": "string_decoder",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
-      },
-      {
-        "name": "safe-buffer",
-        "version": "5.0.1",
-        "path": "node_modules/string_decoder/node_modules/safe-buffer/index.js"
       },
       {
         "name": "strip-bom-buf",
@@ -623,12 +617,12 @@
       },
       {
         "name": "websocket-driver",
-        "version": "0.6.5",
+        "version": "0.7.0",
         "path": "node_modules/websocket-driver/lib/websocket/driver.js"
       },
       {
         "name": "websocket-extensions",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "path": "node_modules/websocket-extensions/lib/websocket_extensions.js"
       }
     ],
@@ -666,7 +660,6 @@
         "node_modules/arr-diff/index.js",
         "node_modules/arr-flatten/index.js",
         "node_modules/array-unique/index.js",
-        "node_modules/arrify/index.js",
         "node_modules/async-each/index.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
@@ -716,6 +709,17 @@
         "node_modules/es5class/doc/scripts/toc.js",
         "node_modules/es5class/examples/es5class.js",
         "node_modules/es5class/index.js",
+        "node_modules/etch/dist/component-helpers.js",
+        "node_modules/etch/dist/default-scheduler.js",
+        "node_modules/etch/dist/dom.js",
+        "node_modules/etch/dist/event-listener-props.js",
+        "node_modules/etch/dist/index.js",
+        "node_modules/etch/dist/patch.js",
+        "node_modules/etch/dist/render.js",
+        "node_modules/etch/dist/scheduler-assignment.js",
+        "node_modules/etch/dist/svg-attribute-translations.js",
+        "node_modules/etch/dist/svg-tags.js",
+        "node_modules/etch/dist/update-props.js",
         "node_modules/etch/lib/component-helpers.js",
         "node_modules/etch/lib/default-scheduler.js",
         "node_modules/etch/lib/dom.js",
@@ -752,6 +756,7 @@
         "node_modules/graceful-fs/graceful-fs.js",
         "node_modules/graceful-fs/legacy-streams.js",
         "node_modules/graceful-fs/polyfills.js",
+        "node_modules/http-parser-js/http-parser.js",
         "node_modules/inherits/inherits.js",
         "node_modules/inherits/inherits_browser.js",
         "node_modules/is-binary-path/index.js",
@@ -2987,9 +2992,6 @@
         "node_modules/semver/semver.js",
         "node_modules/set-immediate-shim/index.js",
         "node_modules/string_decoder/lib/string_decoder.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/browser.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/index.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/test.js",
         "node_modules/strip-bom-buf/index.js",
         "node_modules/symbol-observable/es/index.js",
         "node_modules/symbol-observable/es/ponyfill.js",
@@ -2999,7 +3001,6 @@
         "node_modules/untildify/index.js",
         "node_modules/util-deprecate/browser.js",
         "node_modules/util-deprecate/node.js",
-        "node_modules/websocket-driver/examples/tcp_server.js",
         "node_modules/websocket-driver/lib/websocket/driver/base.js",
         "node_modules/websocket-driver/lib/websocket/driver/client.js",
         "node_modules/websocket-driver/lib/websocket/driver/draft75.js",
@@ -3029,7 +3030,6 @@
         "node_modules/arr-diff/package.json",
         "node_modules/arr-flatten/package.json",
         "node_modules/array-unique/package.json",
-        "node_modules/arrify/package.json",
         "node_modules/async-each/package.json",
         "node_modules/atom-package-deps/.eslintrc.json",
         "node_modules/atom-package-deps/package.json",
@@ -3069,6 +3069,7 @@
         "node_modules/glob-base/package.json",
         "node_modules/glob-parent/package.json",
         "node_modules/graceful-fs/package.json",
+        "node_modules/http-parser-js/package.json",
         "node_modules/inherits/package.json",
         "node_modules/is-binary-path/package.json",
         "node_modules/is-buffer/package.json",
@@ -3129,7 +3130,6 @@
         "node_modules/sb-promisify/package.json",
         "node_modules/semver/package.json",
         "node_modules/set-immediate-shim/package.json",
-        "node_modules/string_decoder/node_modules/safe-buffer/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/strip-bom-buf/package.json",
         "node_modules/symbol-observable/package.json",
@@ -3150,13 +3150,13 @@
           "spec"
         ],
         "dependencies": {
-          "ansi-to-html": "^0.6.2",
+          "ansi-to-html": "^0.6.3",
           "atom-package-deps": "^4.6.0",
           "chokidar": "^1.7.0",
-          "etch": "^0.12.4",
+          "etch": "^0.12.6",
           "json-rpc2": "^1.0.2",
-          "redux": "^3.6.0",
-          "semver": "^5.3.0",
+          "redux": "^3.7.2",
+          "semver": "^5.4.1",
           "untildify": "^3.0.2"
         }
       },
@@ -3175,8 +3175,8 @@
           "node_modules/anymatch"
         ],
         "dependencies": {
-          "arrify": "^1.0.0",
-          "micromatch": "^2.1.5"
+          "micromatch": "^2.1.5",
+          "normalize-path": "^2.0.0"
         }
       },
       {
@@ -3522,8 +3522,8 @@
           "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
-          "safe-buffer": "~5.1.0",
-          "string_decoder": "~1.0.0",
+          "safe-buffer": "~5.1.1",
+          "string_decoder": "~1.0.3",
           "util-deprecate": "~1.0.1"
         }
       },
@@ -3563,8 +3563,7 @@
           "node_modules/regex-cache"
         ],
         "dependencies": {
-          "is-equal-shallow": "^0.1.3",
-          "is-primitive": "^2.0.0"
+          "is-equal-shallow": "^0.1.3"
         }
       },
       {
@@ -3606,7 +3605,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "safe-buffer": "~5.0.1"
+          "safe-buffer": "~5.1.0"
         }
       },
       {
@@ -3619,13 +3618,13 @@
       },
       {
         "paths": [
-          "node_modules/websocket-driver/examples",
           "node_modules/websocket-driver/lib/websocket/driver",
           "node_modules/websocket-driver/lib/websocket/driver/hybi",
           "node_modules/websocket-driver/lib/websocket",
           "node_modules/websocket-driver"
         ],
         "dependencies": {
+          "http-parser-js": ">=0.4.0",
           "websocket-extensions": ">=0.1.1"
         }
       }

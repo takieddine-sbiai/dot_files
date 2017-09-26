@@ -2,48 +2,54 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-3883-1uqhk51"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38686-1vkocgu.svxqi79zfr"
     ]
   ],
-  "_from": "../d-116119-3883-1d9s1tp/package.tgz",
-  "_id": "tab-switcher@1.5.4",
+  "_from": "../d-117822-38686-bt6ea.lshep9o1or/package.tgz",
+  "_id": "tab-switcher@1.5.6",
   "_inCache": true,
-  "_installable": true,
   "_location": "/tab-switcher",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116119-3883-1d9s1tp/package.tgz",
-  "_shasum": "1b38b7b605b1f44d4086bbd680b933da5b184c66",
+  "_resolved": "file:../d-117822-38686-bt6ea.lshep9o1or/package.tgz",
+  "_shasum": "7ce7c4a78eb77bb9d29dd14dac9c5c896a16d468",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-116119-3883-1d9s1tp/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-116119-3883-1uqhk51",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38686-bt6ea.lshep9o1or/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38686-1vkocgu.svxqi79zfr",
   "bugs": {
     "url": "https://github.com/oggy/tab-switcher/issues"
+  },
+  "consumedServices": {
+    "file-icons.element-icons": {
+      "versions": {
+        "1.0.0": "consumeElementIcons"
+      }
+    }
   },
   "dependencies": {},
   "description": "Most recently used (MRU) tab switcher for Atom.",
   "devDependencies": {},
   "engines": {
-    "atom": ">=1.7.0 <2.0.0"
+    "atom": ">=1.18.0 <2.0.0"
   },
   "homepage": "https://github.com/oggy/tab-switcher#readme",
   "license": "MIT",
@@ -56,5 +62,20 @@
     "type": "git",
     "url": "git+https://github.com/oggy/tab-switcher.git"
   },
-  "version": "1.5.4"
+  "version": "1.5.6",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/tab-list-view.coffee",
+        "lib/tab-list.coffee",
+        "lib/tab-switcher.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

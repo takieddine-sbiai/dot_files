@@ -21,7 +21,7 @@ export function create (rawVariables) {
     }
   }
 
-  rawVariables.map((variable) => {
+  rawVariables.forEach((variable) => {
     const v = factory.variable(variable)
     v.path = v.name = variable.name
     addVariable('', v)
@@ -133,7 +133,7 @@ const factory = {
       if (c1.children) {
         console.log(variable.children[1])
       }
-      content = [c0.value, '/', c1.value]
+      content = [' ', c0.value, '/', c1.value]
     }
     return {
       value: [shortType(variable.type), content]
@@ -170,11 +170,20 @@ const factory = {
 
     // nicer handling for errors
     if (variable.type === 'error' && child.type === '*errors.errorString') {
+      const c = child.children[0]
+      if (c) {
+        const err = c.children[0]
+        if (err) {
+          return {
+            value: [
+              'error ',
+              factory.variable(err).value
+            ]
+          }
+        }
+      }
       return {
-        value: [
-          'error ',
-          factory.variable(child.children[0].children[0]).value
-        ]
+        value: ['error(', formatAddr(child), ')']
       }
     }
 
@@ -228,7 +237,7 @@ const factory = {
   complex (variable) {
     const { value: v0 } = factory.variable(variable.children[0])
     const { value: v1 } = factory.variable(variable.children[1])
-    return { value: ['(', v0, v1, 'i)'] }
+    return { value: ['(', v0, ' + ', v1, 'i)'] }
   },
   default (variable) {
     const kind = KINDS[variable.kind]

@@ -75,14 +75,14 @@ export default class OutputPanelManager {
     this._lastContent = content[content.length - 1]
 
     if (!this.ansi) {
-      this.ansi = new Ansi({ stream: true })
+      this.ansi = new Ansi({ stream: true, escapeXML: true })
     }
 
-    let newContent = content.slice(index + 1).map(({ type, value }) => {
-      if (type === 'text') {
-        return { type, value: this.ansi.toHtml(value) }
+    let newContent = content.slice(index + 1).map(({ type, ...rest }) => {
+      if (type === 'message') {
+        return { type, message: this.ansi.toHtml(rest.message) }
       }
-      return { type, value }
+      return { type, ...rest }
     })
 
     if (index === -1) {
@@ -99,7 +99,7 @@ export default class OutputPanelManager {
 
   handleClickClean (ev) {
     ev.preventDefault()
-    this._store.dispatch({ type: 'CLEAR_OUTPUT_MESSAGES' })
+    this._store.dispatch({ type: 'CLEAR_OUTPUT_CONTENT' })
   }
 
   handleEnterRepl (value) {
@@ -112,8 +112,11 @@ export default class OutputPanelManager {
       this._dbg.evaluate(value).then((variables) => {
         if (variables) {
           this._store.dispatch({
-            type: 'ADD_OUTPUT_EVAL',
-            variables
+            type: 'ADD_OUTPUT_CONTENT',
+            content: {
+              type: 'eval',
+              variables
+            }
           })
         }
       })

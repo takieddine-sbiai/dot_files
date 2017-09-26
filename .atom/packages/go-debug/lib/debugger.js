@@ -34,7 +34,7 @@ export default class Debugger {
 
     // clear the output panel
     if (atom.config.get('go-debug.clearOutputOnStart') === true) {
-      this._store.dispatch({ type: 'CLEAR_OUTPUT_MESSAGES' })
+      this._store.dispatch({ type: 'CLEAR_OUTPUT_CONTENT' })
     }
 
     // start the debugger
@@ -57,6 +57,7 @@ export default class Debugger {
         })
       })
       .catch((err) => {
+        console.warn('go-debug', 'start', err)
         this._addOutputMessage(`Failed to start delve with config "${config.name}"\r\n  Error: ${err}\n`)
         return this.stop()
       })
@@ -262,7 +263,7 @@ export default class Debugger {
     const id = setTimeout(() => {
       this._store.dispatch({ type: 'UPDATE_STACKTRACE', stacktrace: [] })
       this._store.dispatch({ type: 'UPDATE_GOROUTINES', goroutines: [] })
-    }, 250)
+    }, 500)
 
     return this._updateState(
       () => this._session[fn](),
@@ -273,9 +274,7 @@ export default class Debugger {
         return this.stop()
       }
       return this.getGoroutines() // get the new goroutines
-        .then(() => this._selectGoroutine(newState.goroutineID)) // select the current goroutine
-        .then(() => this._selectStacktrace(0)) // reselect the first stacktrace entry
-        .then(() => this._evaluateWatchExpressions())
+        .then(() => this.selectGoroutine(newState.goroutineID)) // select the current goroutine
     })
   }
 
@@ -300,9 +299,9 @@ export default class Debugger {
    * @return {Promise}
    */
   selectStacktrace (index) {
-    return this._selectStacktrace(index).then(() => {
-      return this._evaluateWatchExpressions()
-    })
+    return this._selectStacktrace(index)
+      .then(() => this._getVariables())
+      .then(() => this._evaluateWatchExpressions())
   }
   _selectStacktrace (index) {
     if (this._store.getState().delve.selectedStacktrace === index) {
@@ -323,9 +322,9 @@ export default class Debugger {
    * @return {Promise}
    */
   selectGoroutine (id) {
-    return this._selectGoroutine(id).then(() => {
-      return this._evaluateWatchExpressions()
-    })
+    return this._selectGoroutine(id)
+      .then(() => this.getStacktrace(id))
+      .then(() => this.selectStacktrace(0)) // reselect the first stacktrace entry
   }
   _selectGoroutine (id) {
     if (!this.isStarted()) {
@@ -333,14 +332,13 @@ export default class Debugger {
     }
     if (this._store.getState().delve.selectedGoroutine === id) {
       // no need to change
-      return this.getStacktrace(id)
+      return Promise.resolve()
     }
 
     return this._updateState(
       () => this._session.selectGoroutine({ id })
     ).then(() => {
       this._store.dispatch({ type: 'SET_SELECTED_GOROUTINE', id })
-      return this.getStacktrace(id)
     })
   }
 
@@ -365,6 +363,25 @@ export default class Debugger {
       () => this._session.getGoroutines()
     ).then((goroutines) => {
       this._store.dispatch({ type: 'UPDATE_GOROUTINES', goroutines })
+    })
+  }
+
+  _getVariables () {
+    const { selectedGoroutine, selectedStacktrace, stacktrace } = this._store.getState().delve
+
+    const st = stacktrace[selectedStacktrace]
+    if (!st || st.variables) {
+      return Promise.resolve()
+    }
+
+    const scope = {
+      goroutineID: selectedGoroutine,
+      frame: selectedStacktrace
+    }
+    return this._updateState(
+      () => this._session.getVariables(scope)
+    ).then((variables) => {
+      this._store.dispatch({ type: 'UPDATE_VARIABLES', variables, stacktraceIndex: selectedStacktrace })
     })
   }
 
@@ -468,8 +485,11 @@ export default class Debugger {
 
   _addOutputMessage (message) {
     this._store.dispatch({
-      type: 'ADD_OUTPUT_MESSAGE',
-      message
+      type: 'ADD_OUTPUT_CONTENT',
+      content: {
+        type: 'message',
+        message
+      }
     })
   }
 }

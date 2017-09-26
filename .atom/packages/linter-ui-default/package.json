@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117522-171-ztogj3.cj10vpwrk9"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38694-ztc3eh.j87r13v7vi"
     ]
   ],
-  "_from": "../d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
-  "_id": "linter-ui-default@1.6.2",
+  "_from": "../d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
+  "_id": "linter-ui-default@1.6.8",
   "_inCache": true,
-  "_installable": true,
   "_location": "/linter-ui-default",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
-  "_shasum": "2cd669df4bd1740382364347ea8f429401e9dcd0",
+  "_resolved": "file:../d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
+  "_shasum": "b5274873f4954e5451049dde5956ac00a46d7de4",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117522-171-1j98n8v.di6t2r19k9/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117522-171-ztogj3.cj10vpwrk9",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38694-1kgnkwz.4k328x5hfr/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38694-ztc3eh.j87r13v7vi",
   "bugs": {
     "url": "https://github.com/steelbrain/linter-ui-default/issues"
   },
@@ -188,7 +187,7 @@
   "description": "Default UI for the Linter package",
   "devDependencies": {
     "eslint-config-steelbrain": "^3.0.0",
-    "flow-bin": "^0.46.0",
+    "flow-bin": "^0.52.0",
     "jasmine-fix": "^1.0.1",
     "rimraf": "^2.5.4"
   },
@@ -229,13 +228,13 @@
   "scripts": {
     "test": "(apm test) && (flow check) && (eslint . )"
   },
-  "version": "1.6.2",
+  "version": "1.6.8",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "asap",
-        "version": "2.0.5",
+        "version": "2.0.6",
         "path": "node_modules/asap/asap.js"
       },
       {
@@ -275,12 +274,12 @@
       },
       {
         "name": "fbjs",
-        "version": "0.8.12",
+        "version": "0.8.15",
         "path": "node_modules/fbjs/index.js"
       },
       {
         "name": "iconv-lite",
-        "version": "0.4.18",
+        "version": "0.4.19",
         "path": "node_modules/iconv-lite/lib/index.js"
       },
       {
@@ -300,7 +299,7 @@
       },
       {
         "name": "js-tokens",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "path": "node_modules/js-tokens/index.js"
       },
       {
@@ -320,7 +319,7 @@
       },
       {
         "name": "node-fetch",
-        "version": "1.7.1",
+        "version": "1.7.3",
         "path": "node_modules/node-fetch/index.js"
       },
       {
@@ -395,7 +394,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {
@@ -410,7 +409,7 @@
       },
       {
         "name": "ua-parser-js",
-        "version": "0.7.12",
+        "version": "0.7.14",
         "path": "node_modules/ua-parser-js/src/ua-parser.js"
       },
       {
@@ -479,8 +478,8 @@
         "node_modules/strip-bom-buf/package.json",
         "node_modules/ua-parser-js/bower.json",
         "node_modules/ua-parser-js/package.json",
-        "node_modules/ua-parser-js/ua-parser-js.jquery.json",
         "node_modules/whatwg-fetch/package.json",
+        "package-lock.json",
         "package.json"
       ],
       ".js": [

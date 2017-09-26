@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
+        "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
-        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
+        "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
+        "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117320-8436-139gyif"
+      "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38659-10dlxj6.lky2vuz0k9"
     ]
   ],
-  "_from": "../d-117320-8436-c80muv/package.tgz",
-  "_id": "language-scala@1.1.8",
+  "_from": "../d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
+  "_id": "language-scala@1.1.9",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-scala",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
+    "raw": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
-    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
+    "rawSpec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
+    "spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117320-8436-c80muv/package.tgz",
-  "_shasum": "736902f12e5e539c999b7ba2c79c74f999d0697d",
+  "_resolved": "file:../d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
+  "_shasum": "a1b06e91d3607c89dfcff8f262a69226e1f28259",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117320-8436-c80muv/package.tgz",
-  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117320-8436-139gyif",
+  "_spec": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/d-117822-38659-1vx3ya9.gtnnpfd2t9/package.tgz",
+  "_where": "/private/var/folders/s7/gzt72wd119q6cxjjbhc11xfh0000gp/T/apm-install-dir-117822-38659-10dlxj6.lky2vuz0k9",
   "bugs": {
     "url": "https://github.com/jroesch/language-scala/issues"
   },
@@ -55,5 +54,15 @@
     "type": "git",
     "url": "git+https://github.com/jroesch/language-scala.git"
   },
-  "version": "1.1.8"
+  "version": "1.1.9",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }
