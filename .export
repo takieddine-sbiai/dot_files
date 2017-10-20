@@ -36,3 +36,6 @@ export PATH=${EXTRA_BIN}:${GOPATH}/bin:/opt/local/bin:/opt/local/sbin:/opt/local
 # less
 export LESS="-F -X -r $LESS"
 export LESSCHARSET=utf-8
+
+# CDPATH
+export CDPATH=${HOME}/work:${HOME}/work/github
